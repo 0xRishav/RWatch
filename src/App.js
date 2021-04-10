@@ -1,9 +1,17 @@
 import "./App.css";
+import { Switch, Route } from "react-router-dom";
+import { LandingPage } from "./pages";
+import { SignedOutNav } from "./components";
 
 function App() {
   return (
     <div className="App">
-      <h1>App Component</h1>
+      <SignedOutNav />
+      <Switch>
+        <Route exact path="/">
+          <LandingPage />
+        </Route>
+      </Switch>
     </div>
   );
 }
