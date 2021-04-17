@@ -4,6 +4,7 @@ import landingPageBannerImg from "../../assets/newYorkImg2.jpg";
 import landingPageBannerVideo from "../../assets/BannerVideo.mp4";
 import { BsFillPersonFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import { AllVideos } from "../../data/AllVideos";
 
 function LandingPage() {
   const [isVideoLoaded, setIsVideoLoaded] = React.useState(false);
@@ -14,23 +15,23 @@ function LandingPage() {
     <div className="landingpage">
       <div className="landingpage__bannerContainer">
         <img
-          src={landingPageBannerImg}
+          src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80"
           className="landingpage__bannerImg"
           alt="thumb"
-          style={{ opacity: isVideoLoaded ? 0 : 1 }}
+          style={{ opacity: isVideoLoaded ? 0 : 0.6 }}
         />
-        <video
+        {/* <video
           autoPlay
           playsInline
           muted
-          src={landingPageBannerVideo}
+          src="https://www.youtube.com/watch?v=SRs3zTkkFTY"
           onLoadedData={onLoadedData}
           className="landingpage__bannerVideo"
-          style={{ opacity: isVideoLoaded ? 1 : 0 }}
-        />
+          style={{ opacity: isVideoLoaded ? 0.4 : 0.4 }}
+        /> */}
         <div className="landingpage__ctaContainer">
           <div className="landingpage__ctaHeading">
-            Watch best of Travel Videos on RWatch
+            Watch best Tech Events on RWatch
           </div>
           <div className="landingpage__ctaTagLine">
             A Destination For The New Millennium.
@@ -39,7 +40,11 @@ function LandingPage() {
             <button className="landingpage__ctaBtn">SignIn To Watch</button>
           </Link>
         </div>
+        {/* <div className="fade--bottom" /> */}
       </div>
+      {AllVideos.map((video) => (
+        <h1>{video.title}</h1>
+      ))}
     </div>
   );
 }
