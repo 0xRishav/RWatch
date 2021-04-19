@@ -1,0 +1,40 @@
+.latestVideoCard {
+  display: flex;
+  position: relative;
+  width: 420px;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  margin: 30px;
+  cursor: pointer;
+}
+
+.latestVideoCard__infoWrapper {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.latestVideoCard__coverPhoto {
+  height: 120px;
+  width: 230px;
+  object-fit: cover;
+  border-radius: 10px;
+  /* margin-top: 30px; */
+  box-shadow: 0 4px 7px rgb(0 0 0 / 25%);
+}
+
+.latestVideoCard__organiser {
+  font-size: 0.8rem;
+  color: rgba(235, 235, 245, 0.6);
+}
+.latestVideoCard__description {
+  font-size: 0.8rem;
+  color: rgba(235, 235, 245, 0.6);
+}
+.latestVideoCard__title {
+  font-size: 1.3rem;
+  color: rgba(235, 235, 245, 1);
+  margin: 4px 0;
+}
