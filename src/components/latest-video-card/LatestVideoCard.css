@@ -1,16 +1,15 @@
 .latestVideoCard {
   display: flex;
   position: relative;
-  width: 420px;
   justify-content: space-between;
   align-items: center;
   text-align: left;
-  margin: 30px;
+  margin: 1rem;
   cursor: pointer;
 }
 
 .latestVideoCard__infoWrapper {
-  width: 40%;
+  width: 72%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -18,10 +17,10 @@
 
 .latestVideoCard__coverPhoto {
   height: 120px;
-  width: 230px;
+  width: 350px;
   object-fit: cover;
   border-radius: 10px;
-  /* margin-top: 30px; */
+  margin-right: 32px;
   box-shadow: 0 4px 7px rgb(0 0 0 / 25%);
 }
 
