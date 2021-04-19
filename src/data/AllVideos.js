@@ -2,7 +2,7 @@ export const AllVideos = [
   // APPLE
   {
     title: "WWDC 2020",
-    organizer: "Apple",
+    organiser: "Apple",
     description:
       "Apple WWDC 2020 kicked off with big announcements, exciting reveals, inspiration, and new opportunities to create the most innovative apps in the world.",
     isLatest: true,
@@ -12,7 +12,7 @@ export const AllVideos = [
 
   {
     title: "High Speed - October 13",
-    organizer: "Apple",
+    organiser: "Apple",
     description:
       "Watch the special Apple Event and learn about the latest updates for HomePod mini, iPhone, and more.",
     isLatest: false,
@@ -24,7 +24,7 @@ export const AllVideos = [
 
   {
     title: "Google Keynote (Google I/O'19)",
-    organizer: "Google",
+    organiser: "Google",
     description:
       "Learn about the latest product and platform innovations at Google in a Keynote led by Sundar Pichai.",
     isLatest: true,
@@ -34,7 +34,7 @@ export const AllVideos = [
 
   {
     title: "Google Keynote (Google I/O'18)",
-    organizer: "Google",
+    organiser: "Google",
     description:
       "Learn about the latest product and platform innovations at Google in a Keynote led by Sundar Pichai.",
     isLatest: false,
@@ -46,7 +46,7 @@ export const AllVideos = [
 
   {
     title: "Galaxy Unpacked January 2021",
-    organizer: "Samsung",
+    organiser: "Samsung",
     description:
       "It’s the moment we’ve all been waiting for. #SamsungUnpacked​ was LIVE on January 14, 2021.",
     isLatest: true,
@@ -56,7 +56,7 @@ export const AllVideos = [
 
   {
     title: "Samsung Galaxy Awesome Unpacked March 2021",
-    organizer: "Samsung",
+    organiser: "Samsung",
     description:
       "Ready for the next generation of awesome? #SamsungUnpacked​ #GalaxyA72​ #GalaxyA52​ #Awesome",
     isLatest: true,
@@ -68,7 +68,7 @@ export const AllVideos = [
 
   {
     title: "Microsoft Ignite 2021",
-    organizer: "Microsoft",
+    organiser: "Microsoft",
     description:
       "Join us for our digital event experience on March 2-4, 2021. Microsoft Ignite is for IT pros, decision makers, implementors, architects, developers, and data professionals to explore the latest tools, receive deep technical training, and get questions answered by Microsoft experts.",
     isLatest: true,
@@ -78,7 +78,7 @@ export const AllVideos = [
 
   {
     title: "#MicrosoftEvent​ Live",
-    organizer: "Microsoft",
+    organiser: "Microsoft",
     description:
       "See what’s next from Microsoft Surface at the #MicrosoftEvent​ in New York City.",
     isLatest: false,
@@ -90,7 +90,7 @@ export const AllVideos = [
 
   {
     title: "The Best of CES 2020",
-    organizer: "CES",
+    organiser: "CES",
     description: "See The Best of CES 2020.",
     isLatest: true,
     videoId: "YvRP_Y1WDxw",
@@ -99,7 +99,7 @@ export const AllVideos = [
 
   {
     title: "The Best of CES 2019",
-    organizer: "Microsoft",
+    organiser: "CES",
     description: "The Best of CES 2019: Only the cream of the crop",
     isLatest: false,
     videoId: "mHreov2zl1U",
