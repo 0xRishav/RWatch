@@ -54,6 +54,10 @@
   border-radius: 8px;
   margin-top: 1.5rem;
 }
+.landingpage__videoListingContainer {
+  width: 97%;
+  margin: auto;
+}
 
 .fade--bottom {
   height: 5.4rem;

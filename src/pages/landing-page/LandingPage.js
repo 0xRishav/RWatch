@@ -5,6 +5,8 @@ import landingPageBannerVideo from "../../assets/BannerVideo.mp4";
 import { BsFillPersonFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { AllVideos } from "../../data/AllVideos";
+import LatestVideoCard from "../../components/latest-video-card/LatestVideoCard";
+import { LatestRow } from "../../containers";
 
 function LandingPage() {
   const [isVideoLoaded, setIsVideoLoaded] = React.useState(false);
@@ -42,9 +44,9 @@ function LandingPage() {
         </div>
         {/* <div className="fade--bottom" /> */}
       </div>
-      {AllVideos.map((video) => (
-        <h1>{video.title}</h1>
-      ))}
+      <div className="landingpage__videoListingContainer">
+        <LatestRow />
+      </div>
     </div>
   );
 }
