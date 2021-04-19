@@ -1,0 +1,9 @@
+.latestRow {
+  text-align: left;
+}
+.latestRow__videosWrapper {
+  display: flex;
+  overflow-x: scroll;
+  justify-content: space-between;
+  align-items: center;
+}
