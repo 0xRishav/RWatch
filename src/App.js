@@ -7,11 +7,13 @@ function App() {
   return (
     <div className="App">
       <SignedOutNav />
-      <Switch>
-        <Route exact path="/">
-          <LandingPage />
-        </Route>
-      </Switch>
+      <div className="App__wrapper">
+        <Switch>
+          <Route exact path="/">
+            <LandingPage />
+          </Route>
+        </Switch>
+      </div>
     </div>
   );
 }
