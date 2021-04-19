@@ -1,7 +1,13 @@
 .App {
   text-align: center;
   background-color: #2d2d2d;
-  color: var(--white-clr);
+  color: rgba(235, 235, 245, 1);
+  overflow-x: hidden;
+}
+
+.App__wrapper {
+  /* width: 90%; */
+  margin: auto;
 }
 
 .App-logo {
