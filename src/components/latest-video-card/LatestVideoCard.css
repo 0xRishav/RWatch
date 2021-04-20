@@ -5,7 +5,6 @@
   align-items: center;
   text-align: left;
   margin: 1rem;
-  cursor: pointer;
 }
 
 .latestVideoCard__infoWrapper {
@@ -22,6 +21,7 @@
   border-radius: 10px;
   margin-right: 32px;
   box-shadow: 0 4px 7px rgb(0 0 0 / 25%);
+  cursor: pointer;
 }
 
 .latestVideoCard__organiser {
