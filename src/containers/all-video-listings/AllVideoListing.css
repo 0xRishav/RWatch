@@ -1,0 +1,10 @@
+.landingpage__videoListingContainer {
+  width: 95%;
+  margin: auto;
+}
+
+.allVideosListing__hr {
+  height: 0.5px;
+  width: 100vw;
+  background: rgba(235, 235, 245, 0.4);
+}
