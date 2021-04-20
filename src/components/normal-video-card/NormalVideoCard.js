@@ -3,7 +3,7 @@ import { videoContext } from "../../context/VideoContext";
 import "./NormalVideoCard.css";
 import { AiFillPlayCircle } from "react-icons/ai";
 
-function NormalVideoCard() {
+function NormalVideoCard({ videoId, organiser, title }) {
   const [isCardHover, setIsCardHover] = useState(false);
   const AllVideos = useContext(videoContext);
   return (
@@ -13,16 +13,16 @@ function NormalVideoCard() {
       onMouseLeave={() => setIsCardHover(false)}
     >
       <img
-        src={`https://img.youtube.com/vi/${AllVideos[0].videoId}/0.jpg`}
+        src={`https://img.youtube.com/vi/${videoId}/0.jpg`}
         alt="video-cover"
         className="normalVideoCard__cover"
-        style={{ opacity: isCardHover ? "0.8" : "1" }}
+        style={{ opacity: isCardHover ? "0.5" : "1" }}
       />
       <div
         className="normalVideoCard__organiser"
         style={{ opacity: isCardHover ? "1" : "0" }}
       >
-        {AllVideos[0].organiser}
+        {organiser}
       </div>
       <AiFillPlayCircle
         className="normalVideoCard__playBtn"
@@ -33,7 +33,7 @@ function NormalVideoCard() {
         className="normalVideoCard__title"
         style={{ opacity: isCardHover ? "1" : "0" }}
       >
-        {AllVideos[0].title}
+        {title}
       </div>
     </div>
   );
