@@ -3,7 +3,11 @@
 }
 .latestRow__videosWrapper {
   display: flex;
-  overflow-x: scroll;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  -ms-overflow-style: none !important; /* IE and Edge */
+  scrollbar-width: none !important; /* Firefox */
+
   justify-content: space-between;
   align-items: center;
 }
