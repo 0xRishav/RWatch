@@ -6,7 +6,8 @@ import { BsFillPersonFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { AllVideos } from "../../data/AllVideos";
 import LatestVideoCard from "../../components/latest-video-card/LatestVideoCard";
-import { LatestRow } from "../../containers";
+import { AllVideoListing, LatestRow } from "../../containers";
+import { NormalVideoCard } from "../../components";
 
 function LandingPage() {
   const [isVideoLoaded, setIsVideoLoaded] = React.useState(false);
@@ -44,9 +45,7 @@ function LandingPage() {
         </div>
         {/* <div className="fade--bottom" /> */}
       </div>
-      <div className="landingpage__videoListingContainer">
-        <LatestRow />
-      </div>
+      <AllVideoListing />
     </div>
   );
 }
