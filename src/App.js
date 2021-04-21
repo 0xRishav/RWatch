@@ -1,6 +1,6 @@
 import "./App.css";
 import { Switch, Route } from "react-router-dom";
-import { LandingPage } from "./pages";
+import { Homepage, LandingPage, VideoPage } from "./pages";
 import { SignedOutNav } from "./components";
 
 function App() {
@@ -9,9 +9,9 @@ function App() {
       <SignedOutNav />
       <div className="App__wrapper">
         <Switch>
-          <Route exact path="/">
-            <LandingPage />
-          </Route>
+          <Route exact path="/" component={LandingPage} />
+          <Route exact path="/homepage" component={Homepage} />
+          <Route exact path="/videos/:videoId" component={VideoPage} />
         </Switch>
       </div>
     </div>
