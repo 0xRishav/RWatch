@@ -11,3 +11,8 @@
   justify-content: start;
   align-items: center;
 }
+
+.normalVideoCard__link {
+  text-decoration: none;
+  color: inherit;
+}
