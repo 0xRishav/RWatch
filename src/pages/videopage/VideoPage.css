@@ -1,0 +1,61 @@
+.videopage__banner {
+  position: relative;
+  color: white;
+  height: 75vh;
+  object-fit: contain;
+  background-size: cover;
+  background-position: center;
+  transition: all 0.5s ease-in-out;
+}
+
+.videopage__playIcon {
+  position: absolute;
+  top: calc(50% - 3.5rem - 9.5vh);
+  left: calc(50% - 3.5rem);
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+  font-size: 7rem;
+}
+.videopage__playIcon:hover {
+  font-size: 9rem;
+  top: calc(50% - 4.5rem - 9.5vh);
+  left: calc(50% - 4.5rem);
+}
+
+.videopage__hr {
+  height: 0.5px;
+  width: 100vw;
+  background: rgba(235, 235, 245, 0.4);
+  margin-top: 2vh;
+}
+.videopage__titleBtnWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  text-align: left;
+}
+
+.videopage__iconWrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 20%;
+  /* margin: auto; */
+}
+
+.videopage__icons {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.videopage__youtube__video {
+  height: 75vh;
+  width: 100vw;
+  z-index: 10;
+  margin-top: 6vh;
+}
+
+.videopage__titleWrapper {
+  width: 50%;
+}
