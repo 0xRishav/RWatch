@@ -37,3 +37,7 @@
   color: rgba(235, 235, 245, 1);
   margin: 4px 0;
 }
+
+.latestVideoCard__link {
+  text-decoration: none;
+}
