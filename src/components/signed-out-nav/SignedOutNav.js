@@ -41,7 +41,7 @@ function SignedOutNav() {
 
           <li>
             <NavLink
-              to="/cart"
+              to="/signin"
               className="navbar__Link"
               activeClassName="Navbar__activeLink"
             >
