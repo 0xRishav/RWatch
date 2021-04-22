@@ -43,7 +43,6 @@ function LandingPage() {
             <button className="landingpage__ctaBtn">SignIn To Watch</button>
           </Link>
         </div>
-        {/* <div className="fade--bottom" /> */}
       </div>
       <AllVideoListing />
     </div>
