@@ -71,7 +71,7 @@ function AllVideospage() {
       <div className="allvidespage__videosWrapper">
         {(activeOrganiser === "All" ? AllVideos : videosToBeMapped).map(
           (video) => (
-            <NormalVideoCard {...video} />
+            <NormalVideoCard {...video} isInGrid/>
           )
         )}
       </div>

@@ -4,12 +4,12 @@ import "./NormalVideoCard.css";
 import { Link } from "react-router-dom";
 import { AiFillPlayCircle } from "react-icons/ai";
 
-function NormalVideoCard({ videoId, organiser, title }) {
+function NormalVideoCard({ videoId, organiser, title, isInGrid }) {
   const [isCardHover, setIsCardHover] = useState(false);
   const AllVideos = useContext(videoContext);
   return (
     <div
-      className="normalVideoCard"
+      className={isInGrid ? "normalVideoCard inGrid" : "normalVideoCard"}
       onMouseEnter={() => setIsCardHover(true)}
       onMouseLeave={() => setIsCardHover(false)}
     >
