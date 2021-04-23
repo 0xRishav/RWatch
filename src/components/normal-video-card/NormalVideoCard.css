@@ -1,13 +1,7 @@
 .normalVideoCard {
-  margin: 30px;
-  position: relative;
-  width: 270px;
-  height: 146px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  box-shadow: 0 4px 7px rgb(0 0 0 / 25%);
   border-radius: 10px;
-  margin: 16px auto;
 }
 
 .normalVideoCard:hover {
@@ -23,10 +17,12 @@
 }
 
 .normalVideoCard__cover {
-  width: 100%;
-  height: 100%;
+  width: 270px;
+  height: 146px;
   object-fit: cover;
   border-radius: 10px;
+  margin: 16px;
+  box-shadow: 0 4px 7px rgb(0 0 0 / 25%);
 }
 
 .normalVideoCard__layoverContainer {
@@ -39,8 +35,8 @@
 }
 .normalVideoCard__organiser {
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: 26px;
+  left: 26px;
   font-size: 0.8rem;
   transition: all 0.3s ease-in-out;
   background-color: rgba(0, 0, 0, 0.5);
@@ -50,12 +46,16 @@
 }
 .normalVideoCard__title {
   position: absolute;
-  bottom: 10px;
-  left: 10px;
+  bottom: 26px;
+  left: 26px;
   font-size: 0.8rem;
   transition: all 0.3s ease-in-out;
   background-color: rgba(0, 0, 0, 0.5);
   padding: 4px 8px;
   border-radius: 6px;
   font-weight: 400;
+}
+
+.inGrid {
+  margin: 16px auto;
 }
