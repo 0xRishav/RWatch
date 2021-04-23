@@ -6,9 +6,11 @@ import { IoReorderTwoOutline } from "react-icons/io5";
 import { AiOutlineClose } from "react-icons/ai";
 import { BiSearch } from "react-icons/bi";
 import { FaUserAlt } from "react-icons/fa";
+import { videoContext } from "../../context/VideoContext";
 // import { authContext } from "../../contexts/authContext";
 
 function SignedInNav() {
+  const { AllVideos } = useContext(videoContext);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isSearchClicked, setIsSearchClicked] = useState(false);
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
@@ -51,19 +53,18 @@ function SignedInNav() {
     setSearchInput(e.target.value);
   };
 
-  // const filteredProducts = products.filter((product) => {
-  //   if (
-  //     product.name.toLowerCase().includes(searchInput.toLowerCase()) ||
-  //     product.brand.toLowerCase().includes(searchInput.toLowerCase()) ||
-  //     product.category.toLowerCase().includes(searchInput.toLowerCase())
-  //   ) {
-  //     return product;
-  //   }
-  // });
+  const filteredVideos = AllVideos.filter((video) => {
+    if (
+      video.title.toLowerCase().includes(searchInput.toLowerCase()) ||
+      video.organiser.toLowerCase().includes(searchInput.toLowerCase())
+    ) {
+      return video;
+    }
+  });
 
   const handleSearchKeyPress = (e) => {
     if (e.key === "Enter") {
-      // history.push("/search", { filteredProducts });
+      history.push("/search", { filteredVideos, searchInput });
       setIsSideMenuOpen(false);
     }
   };
@@ -77,6 +78,7 @@ function SignedInNav() {
           ? "navbar__wrapper"
           : "navbar__wrapper navbar__wrapper--scrolled"
       }
+      style={{ backgroundColor: isSideMenuOpen ? "black" : "transparent" }}
     >
       {isSideMenuOpen && width < 770 && (
         <div className="Navbar__sideMenu">
@@ -92,7 +94,7 @@ function SignedInNav() {
               <Link
                 to={{
                   pathname: "/search",
-                  // state: { filteredProducts: filteredProducts },
+                  state: { filteredVideos, searchInput },
                 }}
                 className="Navbar__searchInputIcon"
                 onClick={() => setIsSideMenuOpen(false)}
@@ -210,7 +212,7 @@ function SignedInNav() {
               <NavLink
                 to={{
                   pathname: "/search",
-                  // state: { filteredProducts: filteredProducts },
+                  state: { filteredVideos, searchInput },
                 }}
                 className="Navbar__searchInputIcon"
                 onClick={() => setIsSideMenuOpen(false)}
