@@ -12,13 +12,17 @@ function SignUpPage() {
   const [isEmailValid, setIsEmailValid] = useState(false);
   const [isPasswordValid, setIsPasswordValid] = useState(false);
   const [isNameValid, setIsNameValid] = useState(false);
+  const [isValid, setIsValid] = useState(true);
 
   let history = useHistory();
 
   const handleSignUpClick = () => {
     if (isNameValid && isPasswordValid && isEmailValid) {
+      setIsValid(true);
       signUpUser(name, email, password);
       history.push("/signin");
+    } else {
+      setIsValid(false);
     }
   };
 
@@ -45,24 +49,33 @@ function SignUpPage() {
 
   console.log("EMAIL_VALIDATION", isPasswordValid);
 
-  const validateSignUp = () => {};
-
   return (
     <div className="signup">
-      <h2>Sign up to RStore</h2>
+      <h1>Sign up to RWatch</h1>
       <div className="signup__inputContainer">
-        <input type="text" placeholder="Name" onChange={nameChangeHandler} />
-        {!isNameValid && <div>Enter valid Name</div>}
-        <input type="email" placeholder="Email" onChange={emailChangeHandler} />
-        {!isEmailValid && <div>Enter valid Email</div>}
+        <input
+          type="text"
+          placeholder="Name"
+          onChange={nameChangeHandler}
+          className="signup__input"
+        />
+        {!isValid && !isNameValid && <div>Enter valid Name</div>}
+        <input
+          type="email"
+          placeholder="Email"
+          onChange={emailChangeHandler}
+          className="signup__input"
+        />
+        {!isValid && !isEmailValid && <div>Enter valid Email</div>}
         <input
           type="password"
           placeholder="Password"
           onChange={passwordChangeHandler}
+          className="signup__input"
         />
-        {!isPasswordValid && <div>Enter valid Password</div>}
+        {!isValid && !isPasswordValid && <div>Enter valid Password</div>}
       </div>
-      <button className="blue-btn--primary" onClick={handleSignUpClick}>
+      <button className="signup__btn" onClick={handleSignUpClick}>
         Sign up
       </button>
     </div>
