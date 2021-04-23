@@ -8,6 +8,7 @@ import {
   SignInPage,
   SignUpPage,
   VideoPage,
+  Profilepage,
 } from "./pages";
 import { SignedInNav, SignedOutNav } from "./components";
 import { useContext } from "react";
@@ -32,6 +33,7 @@ function App() {
           <PrivateRoute exact path="/videos/:videoId" component={VideoPage} />
           <PrivateRoute exact path="/videos" component={AllVideospage} />
           <PrivateRoute exact path="/search" component={SearchPage} />
+          <Route exact path="/profile" component={Profilepage} />
         </Switch>
       </div>
     </div>
