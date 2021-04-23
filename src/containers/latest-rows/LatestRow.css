@@ -4,10 +4,10 @@
 .latestRow__videosWrapper {
   display: flex;
   overflow-y: hidden;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   -ms-overflow-style: none !important; /* IE and Edge */
   scrollbar-width: none !important; /* Firefox */
 
-  justify-content: space-between;
+  justify-content: start;
   align-items: center;
 }
