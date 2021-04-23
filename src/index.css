@@ -51,9 +51,26 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #2b2b2b;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+@media only screen and (max-width: 1024px) {
+  html {
+    font-size: 15px;
+  }
+}
+@media only screen and (max-width: 425px) {
+  html {
+    font-size: 14px;
+  }
+}
+@media only screen and (max-width: 375px) {
+  html {
+    font-size: 13px;
+  }
 }
