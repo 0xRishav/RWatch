@@ -4,7 +4,7 @@
 .normalVideoList__videosWrapper {
   display: flex;
   overflow-y: hidden;
-  /* overflow-x: scroll; */
+  overflow-x: scroll;
   -ms-overflow-style: none !important; /* IE and Edge */
   scrollbar-width: none !important; /* Firefox */
 
