@@ -6,7 +6,7 @@ import { AiFillPlayCircle } from "react-icons/ai";
 
 function NormalVideoCard({ videoId, organiser, title, isInGrid }) {
   const [isCardHover, setIsCardHover] = useState(false);
-  const AllVideos = useContext(videoContext);
+  const { AllVideos } = useContext(videoContext);
   return (
     <div
       className={isInGrid ? "normalVideoCard inGrid" : "normalVideoCard"}

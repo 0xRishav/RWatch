@@ -4,7 +4,7 @@ import { videoContext } from "../../context/VideoContext";
 import "./AllVideoListing.css";
 
 function AllVideoListing() {
-  const AllVideos = useContext(videoContext);
+  const { AllVideos } = useContext(videoContext);
   const appleEvents = AllVideos.filter((video) => video.organiser === "Apple");
   const googleEvents = AllVideos.filter(
     (video) => video.organiser === "Google"

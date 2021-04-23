@@ -12,7 +12,7 @@ import YouTube from "react-youtube";
 
 function VideoPage() {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
-  const AllVideos = useContext(videoContext);
+  const { AllVideos } = useContext(videoContext);
   const [isVideoLiked, setIsVideoLiked] = useState(false);
   const { videoId } = useParams();
   const video = AllVideos.find((video) => video.videoId === videoId);

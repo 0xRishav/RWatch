@@ -6,9 +6,8 @@ import { RiArrowDropRightLine } from "react-icons/ri";
 import ScrollContainer from "react-indiana-drag-scroll";
 
 function LatestRow() {
-  const AllVideos = useContext(videoContext);
+  const { AllVideos } = useContext(videoContext);
   const latestVideos = AllVideos.filter((video) => video.isLatest);
-  
 
   return (
     <div className="latestRow">

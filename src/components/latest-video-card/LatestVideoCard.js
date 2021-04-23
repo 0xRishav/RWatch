@@ -4,7 +4,7 @@ import "./LatestVideoCard.css";
 import { Link } from "react-router-dom";
 
 function LatestVideoCard({ title, videoId, description, organiser }) {
-  const AllVideos = useContext(videoContext);
+  const { AllVideos } = useContext(videoContext);
   // console.log(AllVideos);
 
   const truncate = (string, n) => {

@@ -11,7 +11,7 @@ import { NormalVideoCard } from "../../components";
 import { useWindowDimensions } from "../../custom-hooks";
 
 function AllVideospage() {
-  const AllVideos = useContext(videoContext);
+  const { AllVideos } = useContext(videoContext);
   const [activeOrganiser, setActiveOrganiser] = useState("All");
 
   const { width } = useWindowDimensions();
@@ -71,7 +71,7 @@ function AllVideospage() {
       <div className="allvidespage__videosWrapper">
         {(activeOrganiser === "All" ? AllVideos : videosToBeMapped).map(
           (video) => (
-            <NormalVideoCard {...video} isInGrid/>
+            <NormalVideoCard {...video} isInGrid />
           )
         )}
       </div>
