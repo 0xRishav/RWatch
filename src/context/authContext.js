@@ -1,5 +1,4 @@
 import { createContext, useEffect, useState } from "react";
-import { useLocation } from "react-router";
 import useLocalStorage from "../custom-hooks/useLocalStorage";
 import { fakeAuthAPI } from "../helpers";
 
