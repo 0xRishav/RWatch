@@ -1,18 +1,35 @@
 import "./App.css";
 import { Switch, Route } from "react-router-dom";
-import { AllVideospage, Homepage, LandingPage, VideoPage } from "./pages";
-import { SignedOutNav } from "./components";
+import {
+  AllVideospage,
+  Homepage,
+  LandingPage,
+  SignInPage,
+  SignUpPage,
+  VideoPage,
+} from "./pages";
+import { SignedInNav, SignedOutNav } from "./components";
+import { useContext } from "react";
+import { authContext } from "./context/authContext";
+import PrivateRoute from "./helpers/PrivateRoute";
 
 function App() {
+  const { isUserLoggedIn, setIsUserLoggedIn } = useContext(authContext);
   return (
     <div className="App">
-      <SignedOutNav />
+      {isUserLoggedIn ? <SignedInNav /> : <SignedOutNav />}
+
       <div className="App__wrapper">
         <Switch>
-          <Route exact path="/" component={LandingPage} />
-          <Route exact path="/homepage" component={Homepage} />
-          <Route exact path="/videos/:videoId" component={VideoPage} />
-          <Route exact path="/videos" component={AllVideospage} />
+          <Route
+            exact
+            path="/"
+            component={isUserLoggedIn ? Homepage : LandingPage}
+          />
+          <Route exact path="/signin" component={SignInPage} />
+          <Route exact path="/signup" component={SignUpPage} />
+          <PrivateRoute exact path="/videos/:videoId" component={VideoPage} />
+          <PrivateRoute exact path="/videos" component={AllVideospage} />
         </Switch>
       </div>
     </div>
