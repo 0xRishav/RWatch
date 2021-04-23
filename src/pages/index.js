@@ -4,3 +4,4 @@ export { default as VideoPage } from "./videopage/VideoPage";
 export { default as AllVideospage } from "./allvideos/AllVideospage";
 export { default as SignInPage } from "./sign-in-page/SignInPage";
 export { default as SignUpPage } from "./sign-up-page/SignUpPage";
+export { default as SearchPage } from "./search-page/SearchPage";
