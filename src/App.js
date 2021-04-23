@@ -4,6 +4,7 @@ import {
   AllVideospage,
   Homepage,
   LandingPage,
+  SearchPage,
   SignInPage,
   SignUpPage,
   VideoPage,
@@ -30,6 +31,7 @@ function App() {
           <Route exact path="/signup" component={SignUpPage} />
           <PrivateRoute exact path="/videos/:videoId" component={VideoPage} />
           <PrivateRoute exact path="/videos" component={AllVideospage} />
+          <PrivateRoute exact path="/search" component={SearchPage} />
         </Switch>
       </div>
     </div>
