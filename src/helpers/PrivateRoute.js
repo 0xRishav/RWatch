@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { Redirect, Route } from "react-router";
-import { authContext } from "../contexts/authContext";
+import { authContext } from "../context/authContext";
 
 export default function PrivateRoute({ component, path, ...props }) {
   const { isUserLoggedIn } = useContext(authContext);
@@ -10,10 +10,7 @@ export default function PrivateRoute({ component, path, ...props }) {
       {isUserLoggedIn ? (
         <Component />
       ) : (
-        <Redirect
-          replace
-          to={{ pathname: "/signin", state: { from: path } }}
-        />
+        <Redirect replace to={{ pathname: "/signin", state: { from: path } }} />
       )}
     </Route>
   );
