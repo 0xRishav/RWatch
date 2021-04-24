@@ -1,5 +1,5 @@
 import "./App.css";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import {
   AllVideospage,
   Homepage,
@@ -11,6 +11,7 @@ import {
   Profilepage,
   Historypage,
   PlaylistPage,
+  RouteNotFound,
 } from "./pages";
 import { SignedInNav, SignedOutNav } from "./components";
 import { useContext } from "react";
@@ -18,7 +19,7 @@ import { authContext } from "./context/authContext";
 import PrivateRoute from "./helpers/PrivateRoute";
 
 function App() {
-  const { isUserLoggedIn, setIsUserLoggedIn } = useContext(authContext);
+  const { isUserLoggedIn } = useContext(authContext);
   return (
     <div className="App">
       {isUserLoggedIn ? <SignedInNav /> : <SignedOutNav />}
@@ -38,6 +39,8 @@ function App() {
           <Route exact path="/profile" component={Profilepage} />
           <Route exact path="/history" component={Historypage} />
           <Route exact path="/playlists" component={PlaylistPage} />
+          <Route path="/404" component={RouteNotFound} />
+          <Redirect from="*" to="/404" />
         </Switch>
       </div>
     </div>
