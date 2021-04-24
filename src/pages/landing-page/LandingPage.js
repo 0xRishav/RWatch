@@ -23,15 +23,16 @@ function LandingPage() {
           alt="thumb"
           style={{ opacity: isVideoLoaded ? 0 : 0.6 }}
         />
-        {/* <video
+        <video
           autoPlay
           playsInline
           muted
-          src="https://www.youtube.com/watch?v=SRs3zTkkFTY"
+          src={landingPageBannerVideo}
           onLoadedData={onLoadedData}
           className="landingpage__bannerVideo"
-          style={{ opacity: isVideoLoaded ? 0.4 : 0.4 }}
-        /> */}
+          style={{ opacity: isVideoLoaded ? 0.6 : 0 }}
+          loop
+        />
         <div className="landingpage__ctaContainer">
           <div className="landingpage__ctaHeading">
             Watch best Tech Events on RWatch
