@@ -7,3 +7,4 @@ export { default as SignUpPage } from "./sign-up-page/SignUpPage";
 export { default as SearchPage } from "./search-page/SearchPage";
 export { default as Profilepage } from "./profile-page/Profilepage";
 export { default as Historypage } from "./history-page/Historypage";
+export { default as PlaylistPage } from "./playlist-page/PlaylistPage";
