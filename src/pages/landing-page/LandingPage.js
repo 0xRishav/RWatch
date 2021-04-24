@@ -1,12 +1,11 @@
 import React from "react";
 import "./LandingPage.css";
-// import landingPageBannerVideo from "../../assets/BannerVideo.mp4";
 import { Link } from "react-router-dom";
 import { AllVideoListing } from "../../containers";
 
 function LandingPage() {
   const [isVideoLoaded, setIsVideoLoaded] = React.useState(false);
-  const onLoadedData = () => {
+  const onLoadedDataHandler = () => {
     setIsVideoLoaded(true);
   };
   return (
@@ -18,16 +17,16 @@ function LandingPage() {
           alt="thumb"
           style={{ opacity: isVideoLoaded ? 0 : 0.6 }}
         />
-        {/* <video
+        <video
           autoPlay
           playsInline
           muted
-          src={landingPageBannerVideo}
-          onLoadedData={onLoadedData}
+          src="https://cdn.kapwing.com/final_6084a1b28ecdf5002f0c6f28_382763.mp4"
+          onLoadedData={onLoadedDataHandler}
           className="landingpage__bannerVideo"
           style={{ opacity: isVideoLoaded ? 0.6 : 0 }}
           loop
-        /> */}
+        />
         <div className="landingpage__ctaContainer">
           <div className="landingpage__ctaHeading">
             Watch best Tech Events on RWatch
