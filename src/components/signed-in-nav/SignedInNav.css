@@ -97,7 +97,7 @@
   color: var(--white-clr);
   backdrop-filter: saturate(180%) blur(20px);
   background-color: transparent;
-  background: var(--black-clr);
+  background: #2b2b2b;
   opacity: 1 !important;
 }
 
