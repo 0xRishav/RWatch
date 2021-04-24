@@ -6,13 +6,16 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router } from "react-router-dom";
 import { VideoContextProvider } from "./context/VideoContext";
 import { AuthContextProvider } from "./context/authContext";
+import { _ScrollToTop } from "./helpers";
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <AuthContextProvider>
         <VideoContextProvider>
-          <App />
+          <_ScrollToTop>
+            <App />
+          </_ScrollToTop>
         </VideoContextProvider>
       </AuthContextProvider>
     </Router>
