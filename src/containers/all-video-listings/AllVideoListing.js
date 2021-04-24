@@ -21,15 +21,15 @@ function AllVideoListing() {
     <div className="allVideosListing">
       <LatestRow />
       <div className="allVideosListing__hr"></div>
-      <NormalVideoList videos={appleEvents} />
+      <NormalVideoList videos={appleEvents} isInGrid={true} />
       <div className="allVideosListing__hr"></div>
-      <NormalVideoList videos={googleEvents} />
+      <NormalVideoList videos={googleEvents} isInGrid={true} />
       <div className="allVideosListing__hr"></div>
-      <NormalVideoList videos={samsungEvents} />
+      <NormalVideoList videos={samsungEvents} isInGrid={true} />
       <div className="allVideosListing__hr"></div>
-      <NormalVideoList videos={microsoftEvents} />
+      <NormalVideoList videos={microsoftEvents} isInGrid={true} />
       <div className="allVideosListing__hr"></div>
-      <NormalVideoList videos={cesEvents} />
+      <NormalVideoList videos={cesEvents} isInGrid={true} />
     </div>
   );
 }
