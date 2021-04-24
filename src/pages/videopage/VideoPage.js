@@ -13,7 +13,7 @@ import { PlaylistModal } from "../../components";
 
 function VideoPage() {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
-  const { AllVideos, likedVideos } = useContext(videoContext);
+  const { AllVideos, likedVideos, history } = useContext(videoContext);
   const { dispatch } = useContext(videoContext);
   const [isVideoLiked, setIsVideoLiked] = useState(false);
   const { videoId } = useParams();
@@ -31,7 +31,13 @@ function VideoPage() {
   };
 
   const playBtnClickHandler = () => {
-    dispatch({ type: "ADD_TO_HISTORY", payload: videoId });
+    const isInHistory = history.some(
+      (historyVideo) => historyVideo.videoId !== video.videoId
+    );
+
+    if (!isInHistory) {
+      dispatch({ type: "ADD_TO_HISTORY", payload: video });
+    }
     setIsVideoPlaying(true);
   };
 
@@ -47,11 +53,14 @@ function VideoPage() {
     return isInLiked;
   };
 
+  console.log({ history });
   const likeClickHandler = () => {
     setIsVideoLiked(!isVideoLiked);
-    checkIsInLiked()
-      ? dispatch({ type: "ADD_TO_LIKED", payload: video })
-      : dispatch({ type: "REMOVE_FROM_LIKED", payload: { videoId: videoId } });
+    let isInLiked = checkIsInLiked();
+    console.log(isInLiked);
+    isInLiked
+      ? dispatch({ type: "REMOVE_FROM_LIKED", payload: { videoId: videoId } })
+      : dispatch({ type: "ADD_TO_LIKED", payload: video });
   };
 
   const [modalIsOpen, setIsOpen] = useState(false);
