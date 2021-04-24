@@ -45,12 +45,10 @@ export const VideoContextProvider = ({ children }) => {
           history: [...state.history, action.payload],
         };
 
-      case "REMOVE_FROM_HISTORY":
+      case "CLEAR_HISTORY":
         return {
           ...state,
-          history: state.history.filter(
-            (video) => video.videoId !== action.payload.videoId
-          ),
+          history: [],
         };
 
       case "ADD_TO_LIKED":
