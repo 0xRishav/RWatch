@@ -33,9 +33,9 @@ function App() {
           />
           <Route exact path="/signin" component={SignInPage} />
           <Route exact path="/signup" component={SignUpPage} />
-          <PrivateRoute exact path="/videos/:videoId" component={VideoPage} />
-          <PrivateRoute exact path="/videos" component={AllVideospage} />
-          <PrivateRoute exact path="/search" component={SearchPage} />
+          <Route exact path="/videos/:videoId" component={VideoPage} />
+          <Route exact path="/videos" component={AllVideospage} />
+          <Route exact path="/search" component={SearchPage} />
           <Route exact path="/profile" component={Profilepage} />
           <Route exact path="/history" component={Historypage} />
           <Route exact path="/playlists" component={PlaylistPage} />
