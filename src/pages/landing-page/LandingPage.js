@@ -1,13 +1,8 @@
 import React from "react";
 import "./LandingPage.css";
-import landingPageBannerImg from "../../assets/newYorkImg2.jpg";
-import landingPageBannerVideo from "../../assets/BannerVideo.mp4";
-import { BsFillPersonFill } from "react-icons/bs";
+// import landingPageBannerVideo from "../../assets/BannerVideo.mp4";
 import { Link } from "react-router-dom";
-import { AllVideos } from "../../data/AllVideos";
-import LatestVideoCard from "../../components/latest-video-card/LatestVideoCard";
-import { AllVideoListing, LatestRow } from "../../containers";
-import { NormalVideoCard } from "../../components";
+import { AllVideoListing } from "../../containers";
 
 function LandingPage() {
   const [isVideoLoaded, setIsVideoLoaded] = React.useState(false);
@@ -23,7 +18,7 @@ function LandingPage() {
           alt="thumb"
           style={{ opacity: isVideoLoaded ? 0 : 0.6 }}
         />
-        <video
+        {/* <video
           autoPlay
           playsInline
           muted
@@ -32,7 +27,7 @@ function LandingPage() {
           className="landingpage__bannerVideo"
           style={{ opacity: isVideoLoaded ? 0.6 : 0 }}
           loop
-        />
+        /> */}
         <div className="landingpage__ctaContainer">
           <div className="landingpage__ctaHeading">
             Watch best Tech Events on RWatch
