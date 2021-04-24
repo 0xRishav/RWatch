@@ -4,3 +4,4 @@ export { default as NormalVideoCard } from "./normal-video-card/NormalVideoCard"
 export { default as SignedInNav } from "./signed-in-nav/SignedInNav";
 export { default as SignInSignOutBtn } from "./signin-signout-btn/SignInSignOutBtn";
 export { default as Loader } from "./loader/Loader";
+export { default as PlaylistModal } from "./playlist-modal/PlaylistModal";
