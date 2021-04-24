@@ -1,11 +1,20 @@
 export const AllVideos = [
   // APPLE
   {
+    title: "Spring Loaded - April 20",
+    organiser: "Apple",
+    description:
+      "Watch the special Apple Event and learn about the new iMac, iPad Pro, and more.",
+    isLatest: true,
+    videoId: "JdBYVNuky1M",
+    videoUrl: "https://www.youtube.com/watch?v=JdBYVNuky1M",
+  },
+  {
     title: "WWDC 2020",
     organiser: "Apple",
     description:
       "Apple WWDC 2020 kicked off with big announcements, exciting reveals, inspiration, and new opportunities to create the most innovative apps in the world.",
-    isLatest: true,
+    isLatest: false,
     videoId: "GEZhD3J89ZE",
     videoUrl: "https://www.youtube.com/watch?v=GEZhD3J89ZE",
   },
@@ -89,6 +98,26 @@ export const AllVideos = [
     videoUrl: "https://www.youtube.com/watch?v=862r3XS2YB0",
   },
 
+  {
+    title: "Google I/O 2015 - Keynote",
+    organiser: "Google",
+    description:
+      "Google I/O is the annual developers conference for the Mountain View-based search giant. In addition to updates on the next version of Android, Google could unveil additional news from its wide-ranging empire, including anything from search, self-driving cars, Android Wear, Chrome OS, Android TV or Nest smart home devices -- just to name a few.",
+    isLatest: false,
+    videoId: "WYXkWPB_fe8",
+    videoUrl: "https://www.youtube.com/watch?v=WYXkWPB_fe8",
+  },
+
+  {
+    title: "Google I/O 2014 - Keynote",
+    organiser: "Google",
+    description:
+      "Google I/O is the annual developers conference for the Mountain View-based search giant.",
+    isLatest: false,
+    videoId: "biSpvXBGpE0",
+    videoUrl: "https://www.youtube.com/watch?v=biSpvXBGpE0",
+  },
+
   //   SAMSUNG
 
   {
@@ -102,7 +131,7 @@ export const AllVideos = [
   },
 
   {
-    title: "Samsung Galaxy Awesome Unpacked March 2021",
+    title: "Samsung Galaxy Awesome Unpacked",
     organiser: "Samsung",
     description:
       "Ready for the next generation of awesome? #SamsungUnpacked​ #GalaxyA72​ #GalaxyA52​ #Awesome",
@@ -111,7 +140,7 @@ export const AllVideos = [
     videoUrl: "https://www.youtube.com/watch?v=17Tc8un6J40",
   },
   {
-    title: "Galaxy Note20: 2020 Unpacked Official Replay | Samsung",
+    title: "Galaxy Note20: 2020",
     organiser: "Samsung",
     description: "Witness power like never before.",
     isLatest: true,
@@ -119,7 +148,7 @@ export const AllVideos = [
     videoUrl: "https://www.youtube.com/watch?v=CmS5rlX9cDA",
   },
   {
-    title: "Galaxy Unpacked: Official Replay - 2019",
+    title: "Galaxy Unpacked - 2019",
     organiser: "Samsung",
     description:
       "Watch the unveiling of the new Galaxy devices at Unpacked 2019.",
