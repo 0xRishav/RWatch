@@ -59,3 +59,7 @@
 .videopage__titleWrapper {
   width: 50%;
 }
+
+.videopage__link {
+  color: white;
+}

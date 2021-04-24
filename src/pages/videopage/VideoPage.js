@@ -9,17 +9,19 @@ import { MdPlaylistAdd } from "react-icons/md";
 import { BsArrowUpRight } from "react-icons/bs";
 import { useParams } from "react-router";
 import YouTube from "react-youtube";
+import { PlaylistModal } from "../../components";
 
 function VideoPage() {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
-  const { AllVideos } = useContext(videoContext);
+  const { AllVideos, likedVideos } = useContext(videoContext);
+  const { dispatch } = useContext(videoContext);
   const [isVideoLiked, setIsVideoLiked] = useState(false);
   const { videoId } = useParams();
   const video = AllVideos.find((video) => video.videoId === videoId);
 
   const organisersVideos = AllVideos.filter(
     (individualVideo) => individualVideo.organiser === video.organiser
-  );
+  ).filter((organierVideo) => organierVideo.videoId !== videoId);
   const [playBtnHover, setPlayBtnHover] = useState(false);
 
   const opts = {
@@ -27,6 +29,37 @@ function VideoPage() {
       autoplay: 1,
     },
   };
+
+  const playBtnClickHandler = () => {
+    dispatch({ type: "ADD_TO_HISTORY", payload: videoId });
+    setIsVideoPlaying(true);
+  };
+
+  const checkIsInLiked = () => {
+    let isInLiked;
+    if (
+      likedVideos.some((likedVideo) => likedVideo.videoId === video.videoId)
+    ) {
+      isInLiked = true;
+    } else {
+      isInLiked = false;
+    }
+    return isInLiked;
+  };
+
+  const likeClickHandler = () => {
+    setIsVideoLiked(!isVideoLiked);
+    checkIsInLiked()
+      ? dispatch({ type: "ADD_TO_LIKED", payload: video })
+      : dispatch({ type: "REMOVE_FROM_LIKED", payload: { videoId: videoId } });
+  };
+
+  const [modalIsOpen, setIsOpen] = useState(false);
+
+  function openModal() {
+    console.log("CLICKED");
+    setIsOpen(true);
+  }
 
   return (
     <div className="videopage">
@@ -47,7 +80,7 @@ function VideoPage() {
             opacity="1"
             onMouseEnter={() => setPlayBtnHover(true)}
             onMouseLeave={() => setPlayBtnHover(false)}
-            onClick={() => setIsVideoPlaying(true)}
+            onClick={playBtnClickHandler}
           />
         </>
       )}
@@ -67,14 +100,29 @@ function VideoPage() {
 
         <div className="videopage__iconWrapper">
           {isVideoLiked ? (
-            <AiFillLike className="videopage__icons" />
+            <AiFillLike
+              className="videopage__icons"
+              onClick={likeClickHandler}
+            />
           ) : (
-            <AiOutlineLike className="videopage__icons" />
+            <AiOutlineLike
+              className="videopage__icons"
+              onClick={likeClickHandler}
+            />
           )}
-          <MdPlaylistAdd className="videopage__icons" />
-          <BsArrowUpRight className="videopage__icons" />
+          <MdPlaylistAdd className="videopage__icons" onClick={openModal} />
+          <a href={video.videoUrl} target="_blank" className="videopage__link">
+            <BsArrowUpRight className="videopage__icons" />
+          </a>
         </div>
       </div>
+
+      <PlaylistModal
+        modalIsOpen={modalIsOpen}
+        setIsOpen={setIsOpen}
+        video={video}
+        openModal={openModal}
+      />
 
       <div className="videopage__hr" />
 
