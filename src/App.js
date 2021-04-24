@@ -33,7 +33,7 @@ function App() {
           />
           <Route exact path="/signin" component={SignInPage} />
           <Route exact path="/signup" component={SignUpPage} />
-          <Route exact path="/videos/:videoId" component={VideoPage} />
+          <PrivateRoute exact path="/videos/:videoId" component={VideoPage} />
           <Route exact path="/videos" component={AllVideospage} />
           <Route exact path="/search" component={SearchPage} />
           <Route exact path="/profile" component={Profilepage} />
