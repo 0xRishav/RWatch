@@ -7,10 +7,12 @@ import { AiOutlineClose } from "react-icons/ai";
 import { BiSearch } from "react-icons/bi";
 import { FaUserAlt } from "react-icons/fa";
 import { videoContext } from "../../context/VideoContext";
+import { authContext } from "../../context/authContext";
 // import { authContext } from "../../contexts/authContext";
 
 function SignedInNav() {
   const { AllVideos } = useContext(videoContext);
+  const { isUserLoggedIn } = useContext(authContext);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isSearchClicked, setIsSearchClicked] = useState(false);
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
@@ -78,7 +80,13 @@ function SignedInNav() {
           ? "navbar__wrapper"
           : "navbar__wrapper navbar__wrapper--scrolled"
       }
-      style={{ backgroundColor: isSideMenuOpen ? "black" : "transparent" }}
+      style={{
+        backgroundColor: isSideMenuOpen
+          ? "#2d2d2d"
+          : isScrolled
+          ? "black"
+          : "transparent",
+      }}
     >
       {isSideMenuOpen && width < 770 && (
         <div className="Navbar__sideMenu">
@@ -223,9 +231,8 @@ function SignedInNav() {
           </>
         ) : null}
         <NavLink
-          to={"/"}
+          to={isUserLoggedIn ? "/profile" : "signin"}
           className="navbar__Link"
-          activeClassName="Navbar__activeLink"
         >
           {true ? (
             <FaUserAlt />
