@@ -10,6 +10,7 @@ import {
   VideoPage,
   Profilepage,
   Historypage,
+  PlaylistPage,
 } from "./pages";
 import { SignedInNav, SignedOutNav } from "./components";
 import { useContext } from "react";
@@ -36,6 +37,7 @@ function App() {
           <PrivateRoute exact path="/search" component={SearchPage} />
           <Route exact path="/profile" component={Profilepage} />
           <Route exact path="/history" component={Historypage} />
+          <Route exact path="/playlists" component={PlaylistPage} />
         </Switch>
       </div>
     </div>
