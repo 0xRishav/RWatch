@@ -1,0 +1,61 @@
+.normalVideoCard {
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+.normalVideoCard:hover {
+  transform: scale(1.1);
+  transition: 0.3s all ease-in-out;
+}
+
+.normalVideoCard__playBtn {
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+  transition: all 0.3s ease-in-out;
+}
+
+.normalVideoCard__cover {
+  width: 270px;
+  height: 146px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 16px;
+  box-shadow: 0 4px 7px rgb(0 0 0 / 25%);
+}
+
+.normalVideoCard__layoverContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.normalVideoCard__organiser {
+  position: absolute;
+  top: 26px;
+  left: 26px;
+  font-size: 0.8rem;
+  transition: all 0.3s ease-in-out;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-weight: 500;
+}
+.normalVideoCard__title {
+  position: absolute;
+  bottom: 26px;
+  left: 26px;
+  font-size: 0.8rem;
+  transition: all 0.3s ease-in-out;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-weight: 400;
+}
+
+.inGrid {
+  margin: 16px auto;
+}

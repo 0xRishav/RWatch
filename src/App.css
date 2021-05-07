@@ -1,10 +1,19 @@
 .App {
   text-align: center;
+  background-color: #2d2d2d;
+  color: rgba(235, 235, 245, 1);
+  overflow-x: hidden;
+}
+
+.App__wrapper {
+  /* width: 90%; */
+  margin: auto;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+  overflow-x: hidden;
 }
 
 @media (prefers-reduced-motion: no-preference) {

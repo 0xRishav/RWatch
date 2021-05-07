@@ -1,0 +1,11 @@
+export { default as LandingPage } from "./landing-page/LandingPage";
+export { default as Homepage } from "./homepage/Homepage";
+export { default as VideoPage } from "./videopage/VideoPage";
+export { default as AllVideospage } from "./allvideos/AllVideospage";
+export { default as SignInPage } from "./sign-in-page/SignInPage";
+export { default as SignUpPage } from "./sign-up-page/SignUpPage";
+export { default as SearchPage } from "./search-page/SearchPage";
+export { default as Profilepage } from "./profile-page/Profilepage";
+export { default as Historypage } from "./history-page/Historypage";
+export { default as PlaylistPage } from "./playlist-page/PlaylistPage";
+export { default as RouteNotFound } from "./404page/RouteNotFound";

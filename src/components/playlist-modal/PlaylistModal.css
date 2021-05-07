@@ -1,0 +1,39 @@
+.playlistmodal__checkboxInputContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 16px auto;
+}
+
+.playlistmodal__checkbox {
+  cursor: pointer;
+}
+
+.playlistmodal__closeModal {
+  position: absolute;
+  cursor: pointer;
+  right: 16px;
+  top: 16px;
+  padding: 4px 8px;
+  border: none;
+  outline: unset;
+}
+
+.playlistmodal__playlistDeleteIcon {
+  cursor: pointer;
+}
+
+.playlistmodal__addPlaylistBtn {
+  cursor: pointer;
+  width: 100%;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin-top: 16px;
+}
+
+.playlistmodal__addPlaylistWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}

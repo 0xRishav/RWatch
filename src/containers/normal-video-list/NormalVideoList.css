@@ -1,0 +1,18 @@
+.normalVideoList {
+  text-align: start;
+}
+.normalVideoList__videosWrapper {
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  -ms-overflow-style: none !important; /* IE and Edge */
+  scrollbar-width: none !important; /* Firefox */
+
+  justify-content: start;
+  align-items: center;
+}
+
+.normalVideoCard__link {
+  text-decoration: none;
+  color: inherit;
+}
