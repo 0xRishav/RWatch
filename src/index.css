@@ -12,6 +12,12 @@
   --dark-grey-text-clr: black;
   --bright-light-blue-clr: #0c82ff;
   --ckeckbox-blue-clr: #2196f3;
+  --latest-video-card-light-text: rgba(235, 235, 245, 0.6);
+  --latest-video-card-dark-text: rgba(235, 235, 245, 1);
+  --all-video-listing-bg: rgba(235, 235, 245, 0.4);
+  --homepage-banner-btn-clr: #000;
+  --homepage-banner-btn-bg: #e6e6e6;
+
   --white-clr: white;
   --black-clr: black;
   --min-opacity-white: rgba(255, 255, 255, 0.1);

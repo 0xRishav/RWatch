@@ -55,8 +55,9 @@ function AllVideospage() {
   return (
     <div className="allvideospage">
       <div className="allvideospage__optionsWrapper">
-        {organisersList.map((organiser) => (
+        {organisersList.map((organiser, i) => (
           <div
+            key={i}
             className={
               organiser.organiser === activeOrganiser
                 ? "allvideospage__organiserBtn allvideospage__organiserBtn--active"
@@ -70,8 +71,8 @@ function AllVideospage() {
       </div>
       <div className="allvidespage__videosWrapper">
         {(activeOrganiser === "All" ? AllVideos : videosToBeMapped).map(
-          (video) => (
-            <NormalVideoCard {...video} isInGrid />
+          (video, i) => (
+            <NormalVideoCard {...video} isInGrid key={i} />
           )
         )}
       </div>

@@ -79,8 +79,8 @@ const PlaylistModal = ({ video, modalIsOpen, setIsOpen }) => {
         x
       </button>
       <div className="playlistmodal__playlistWrapper">
-        {playlists.map((playlist) => (
-          <div className="playlistmodal__checkboxInputContainer">
+        {playlists.map((playlist, i) => (
+          <div className="playlistmodal__checkboxInputContainer" key={i}>
             <input
               type="checkbox"
               onChange={() => handleCheckboxClick(playlist)}

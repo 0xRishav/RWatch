@@ -8,7 +8,6 @@ import { BiSearch } from "react-icons/bi";
 import { FaUserAlt } from "react-icons/fa";
 import { videoContext } from "../../context/VideoContext";
 import { authContext } from "../../context/authContext";
-// import { authContext } from "../../contexts/authContext";
 
 function SignedInNav() {
   const { AllVideos } = useContext(videoContext);
@@ -19,7 +18,6 @@ function SignedInNav() {
   const [searchInput, setSearchInput] = useState("");
   const { width } = useWindowDimensions();
   const navbarRef = useRef(null);
-  // const { isUserLoggedIn } = useContext(authContext);
 
   const serchClickHandler = () => {
     setIsSearchClicked(true);

@@ -52,6 +52,6 @@
 }
 .homepage__bannerButton:hover {
   color: #000;
-  background-color: #e6e6e6;
-  transition: all 0.2s;
+  background-color: var(--homepage-banner-btn-clr);
+  transition: var(--homepage-banner-btn-bg);
 }

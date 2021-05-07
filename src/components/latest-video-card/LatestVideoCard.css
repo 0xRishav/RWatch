@@ -26,15 +26,15 @@
 
 .latestVideoCard__organiser {
   font-size: 0.8rem;
-  color: rgba(235, 235, 245, 0.6);
+  color: var(--latest-video-card-light-text);
 }
 .latestVideoCard__description {
   font-size: 0.8rem;
-  color: rgba(235, 235, 245, 0.6);
+  color: var(--latest-video-card-light-text);
 }
 .latestVideoCard__title {
   font-size: 1.3rem;
-  color: rgba(235, 235, 245, 1);
+  color: var(--latest-video-card-dark-text);
   margin: 4px 0;
 }
 

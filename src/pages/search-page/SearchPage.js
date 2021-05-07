@@ -12,8 +12,8 @@ function SearchPage() {
       <div className="allvidespage__videosWrapper">
         {filteredVideos.length === 0 && <h3>Nothing to show</h3>}
         {filteredVideos.length > 0 &&
-          filteredVideos.map((video) => (
-            <NormalVideoCard {...video} isInGrid />
+          filteredVideos.map((video, i) => (
+            <NormalVideoCard {...video} isInGrid key={i} />
           ))}
       </div>
     </div>

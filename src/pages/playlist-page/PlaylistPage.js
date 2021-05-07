@@ -16,7 +16,7 @@ const PlaylistPage = () => {
 
   return (
     <div className="playlistpage">
-      {playlists.map((playlist) => (
+      {playlists.map((playlist, i) => (
         <div className="">
           {playlist.playlist.length !== 0 && <h1>{playlist.name}</h1>}
           {playlist.playlist.length !== 0 && (
@@ -24,6 +24,7 @@ const PlaylistPage = () => {
               videos={playlist.playlist}
               dontShowTitle
               inGrid={false}
+              key={i}
             />
           )}
         </div>

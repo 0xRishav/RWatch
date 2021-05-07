@@ -13,8 +13,8 @@ function NormalVideoList({ videos, title, isInGrid, dontShowTitle }) {
           <h1>From {videos[0].organiser}</h1>
         ))}
       <ScrollContainer className="normalVideoList__videosWrapper">
-        {videos.map((video) => (
-          <NormalVideoCard {...video} isInGrid={isInGrid} />
+        {videos.map((video, i) => (
+          <NormalVideoCard {...video} isInGrid={isInGrid} key={i}/>
         ))}
       </ScrollContainer>
     </div>

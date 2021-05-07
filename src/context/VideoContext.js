@@ -66,15 +66,6 @@ export const VideoContextProvider = ({ children }) => {
         };
 
       case "ADD_TO_PLAYLIST":
-        // const newPlaylist = state.playlists.map((individualPlaylist) => {
-        //   if (individualPlaylist.playlistId === action.payload.id) {
-        //     return {
-        //       ...individualPlaylist,
-        //       playlist: [...individualPlaylist.playlist, action.payload.video],
-        //     };
-        //   }
-        //   return individualPlaylist;
-        // });
         return {
           ...state,
           playlists: state.playlists.map((individualPlaylist) => {

@@ -13,8 +13,8 @@ function LatestRow() {
     <div className="latestRow">
       <h1>Latest on RWatch</h1>
       <ScrollContainer className="latestRow__videosWrapper">
-        {latestVideos.map((video) => (
-          <LatestVideoCard {...video} />
+        {latestVideos.map((video, i) => (
+          <LatestVideoCard {...video} key={i}/>
         ))}
       </ScrollContainer>
     </div>
