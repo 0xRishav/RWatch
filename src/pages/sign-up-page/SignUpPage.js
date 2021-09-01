@@ -16,11 +16,14 @@ function SignUpPage() {
 
   let history = useHistory();
 
-  const handleSignUpClick = () => {
+  const handleSignUpClick = async () => {
     if (isNameValid && isPasswordValid && isEmailValid) {
       setIsValid(true);
-      signUpUser(name, email, password);
-      history.push("/signin");
+      const response = await signUpUser(name, email, password);
+      console.log("response", response);
+      if (response.status === 200) {
+        history.push("/");
+      }
     } else {
       setIsValid(false);
     }
@@ -28,7 +31,8 @@ function SignUpPage() {
 
   const emailChangeHandler = (e) => {
     setEmail(e.target.value);
-    const emailRE = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const emailRE =
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
     emailRE.test(String(e.target.value).toLowerCase())
       ? setIsEmailValid(true)

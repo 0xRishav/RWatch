@@ -7,16 +7,17 @@ import { PlaylistModal } from "../../components";
 
 function Homepage() {
   const { AllVideos } = useContext(videoContext);
+  console.log("HOME_AllVideos", AllVideos);
 
   const truncate = (string, n) => {
     return string?.length > n ? string.substr(0, n - 1) + "..." : string;
   };
 
-  const video = AllVideos.find(
+  const index = AllVideos?.findIndex(
     (video) => video.title === "High Speed - October 13"
   );
 
-  const { title, description, videoId } = video;
+  const video = AllVideos[index];
 
   const [modalIsOpen, setIsOpen] = useState(false);
 
@@ -30,13 +31,13 @@ function Homepage() {
       <header
         className="homepage__banner"
         style={{
-          backgroundImage: `url("https://img.youtube.com/vi/${videoId}/maxresdefault.jpg")`,
+          backgroundImage: `url("https://img.youtube.com/vi/${video?.videoId}/maxresdefault.jpg")`,
         }}
       >
         <div className="homepage__bannerContent">
-          <h1 className="homepage__bannerTitle">{title}</h1>
+          <h1 className="homepage__bannerTitle">{video?.title}</h1>
           <div className="homepage__bannerButtons">
-            <Link to={`/videos/${videoId}`}>
+            <Link to={`/videos/${video?.videoId}`}>
               <button className="homepage__bannerButton">Play</button>
             </Link>
             <button className="homepage__bannerButton" onClick={openModal}>
@@ -44,7 +45,7 @@ function Homepage() {
             </button>
           </div>
           <h3 className="homepage__bannerDiscription">
-            {truncate(description, 150)}
+            {truncate(video?.description, 150)}
           </h3>
         </div>
         <div className="fade--bottom" />

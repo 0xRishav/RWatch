@@ -16,7 +16,8 @@ function SignInPage() {
   async function signinHandler() {
     setIsSignInProgress(true);
     const response = await loginWithCredentials(email, password);
-    if (response.success) {
+    console.log(response);
+    if (response.status === 200) {
       history.push(state?.from ? state.from : "/");
     }
     setIsSignInProgress(false);

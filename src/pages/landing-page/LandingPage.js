@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./LandingPage.css";
 import { Link } from "react-router-dom";
 import { AllVideoListing } from "../../containers";
+import { videoContext } from "../../context/VideoContext";
 
 function LandingPage() {
   const [isVideoLoaded, setIsVideoLoaded] = React.useState(false);
+  const { AllVideos } = useContext(videoContext);
+  console.log("allVideos", AllVideos);
   const onLoadedDataHandler = () => {
     setIsVideoLoaded(true);
   };

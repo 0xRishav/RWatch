@@ -1,11 +1,14 @@
-import { createContext, useReducer, useState } from "react";
-import { AllVideos } from "../data/AllVideos";
+import { createContext, useEffect, useReducer, useState } from "react";
+// import { AllVideos } from "../data/AllVideos";
+import axios from "axios";
 
 export const videoContext = createContext();
+const baseUrl = "https://rwatch-api.herokuapp.com";
 
 export const VideoContextProvider = ({ children }) => {
   const [playListIdCounter, setPlayListIdCounter] = useState(3);
   const initialState = {
+    AllVideos: [],
     playlists: [
       {
         playlistId: 1,
@@ -15,10 +18,15 @@ export const VideoContextProvider = ({ children }) => {
     ],
     history: [],
     likedVideos: [],
+    isLoading: false,
+    isErr: false,
   };
 
   const videoReducer = (state, action) => {
     switch (action.type) {
+      case "SET_ALL_VIDEOS":
+        return { ...state, AllVideos: [...action.payload] };
+
       case "ADD_PLAYLIST":
         setPlayListIdCounter(playListIdCounter + 1);
         const newObj = {
@@ -30,6 +38,9 @@ export const VideoContextProvider = ({ children }) => {
           ...state,
           playlists: [...state.playlists, newObj],
         };
+
+      case "TOGGLE_LOADING":
+        return { ...state, isLoading: state.isLoading };
 
       case "REMOVE_PLAYLIST":
         return {
@@ -91,11 +102,34 @@ export const VideoContextProvider = ({ children }) => {
         return {
           ...state,
         };
+      case "TOGGLE_ERR":
+        return { ...state, isErr: !state.isErr };
     }
   };
   const [state, dispatch] = useReducer(videoReducer, initialState);
+  useEffect(() => {
+    (async function () {
+      dispatch({ type: "TOGGLE_LOADING" });
+      try {
+        const response = await axios.get(`${baseUrl}/video`);
+        if (response.data.success) {
+          console.log("inside loop");
+          dispatch({
+            type: "SET_ALL_VIDEOS",
+            payload: [...response.data.videos],
+          });
+        }
+        console.log(response.data.videos);
+      } catch (err) {
+        dispatch({ type: "TOGGLE_ERR" });
+      }
+
+      dispatch({ type: "TOGGLE_LOADING" });
+    })();
+  }, []);
+
   return (
-    <videoContext.Provider value={{ AllVideos, ...state, dispatch }}>
+    <videoContext.Provider value={{ ...state, dispatch }}>
       {children}
     </videoContext.Provider>
   );
