@@ -7,11 +7,11 @@ import { AiOutlineClose } from "react-icons/ai";
 import { BiSearch } from "react-icons/bi";
 import { FaUserAlt } from "react-icons/fa";
 import { videoContext } from "../../context/VideoContext";
-import { authContext } from "../../context/authContext";
+import { UserContext } from "../../context/UserContext";
 
 function SignedInNav() {
   const { AllVideos } = useContext(videoContext);
-  const { isUserLoggedIn } = useContext(authContext);
+  const { isUserLoggedIn } = useContext(UserContext);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isSearchClicked, setIsSearchClicked] = useState(false);
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);

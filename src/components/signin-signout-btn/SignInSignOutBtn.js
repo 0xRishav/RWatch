@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { authContext } from "../../context/authContext";
+import { UserContext } from "../../context/UserContext";
 import "./SignInSignOutBtn.css";
 
 function SignInSignOutBtn() {
-  const { isUserLoggedIn, setIsUserLoggedIn } = useContext(authContext);
+  const { isUserLoggedIn, setIsUserLoggedIn } = useContext(UserContext);
   const signinBtnHandler = () => {
     if (isUserLoggedIn) {
       window.localStorage.removeItem("currentUser");

@@ -1,13 +1,14 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useReducer, useState } from "react";
 import useLocalStorage from "../custom-hooks/useLocalStorage";
 import axios from "axios";
 
-export const authContext = createContext();
+export const UserContext = createContext();
+const baseUrl = "https://rwatch-api.herokuapp.com";
 
-export const AuthContextProvider = ({ children }) => {
-  const [currentUser, setCurrentUser] = useLocalStorage("currentUser", false);
-
-  const baseUrl = "https://rwatch-api.herokuapp.com";
+export const UserContextProvider = ({ children }) => {
+  const initialState = {
+    currentUser: {},
+  };
 
   axios.interceptors.request.use(
     (config) => {
@@ -49,12 +50,22 @@ export const AuthContextProvider = ({ children }) => {
   );
 
   useEffect(() => {
-    if (currentUser) {
-      setIsUserLoggedIn(true);
+    const jsonUser = localStorage.getItem("user");
+
+    if (jsonUser) {
+      const parsedUser = JSON.parse(jsonUser);
+      dispatch({ type: "SET_USER", payload: parsedUser });
     }
   }, []);
 
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+
+  const userReducer = (state, { payload, type }) => {
+    switch (type) {
+      case "SET_USER":
+        return { ...state, user: payload.user };
+    }
+  };
 
   const signUpUser = async (name, email, password) => {
     try {
@@ -65,8 +76,9 @@ export const AuthContextProvider = ({ children }) => {
       });
       console.log("res", res);
       if (res.data.success) {
-        setCurrentUser(res.data.data.user);
+        localStorage.setItem("user", JSON.stringify(res.data.data.user));
         localStorage.setItem("accessToken", res.data.data.accessToken);
+        setIsUserLoggedIn(true);
         return res;
       } else {
         console.log("invalid email or password");
@@ -86,7 +98,8 @@ export const AuthContextProvider = ({ children }) => {
       console.log("response", response);
       if (response.data.success) {
         console.log(response);
-        setCurrentUser(response.data.populatedUser);
+        localStorage.setItem("user", JSON.stringify(response.data.data.user));
+        localStorage.setItem("accessToken", response.data.data.accessToken);
         setIsUserLoggedIn(true);
       } else {
         console.log("invalid login request");
@@ -97,17 +110,18 @@ export const AuthContextProvider = ({ children }) => {
       return console.log(err);
     }
   }
+  const [state, dispatch] = useReducer(userReducer, initialState);
   return (
-    <authContext.Provider
+    <UserContext.Provider
       value={{
         isUserLoggedIn,
         setIsUserLoggedIn,
         loginWithCredentials,
         signUpUser,
-        currentUser,
+        ...state,
       }}
     >
       {children}
-    </authContext.Provider>
+    </UserContext.Provider>
   );
 };

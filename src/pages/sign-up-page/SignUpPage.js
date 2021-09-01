@@ -1,11 +1,11 @@
 import React, { useContext, useState } from "react";
 import { useHistory } from "react-router";
-import { authContext } from "../../context/authContext";
+import { UserContext } from "../../context/UserContext";
 // import useLocalStorage from "../../custom-hooks/useLocalStorage";
 import "./SignUpPage.css";
 
 function SignUpPage() {
-  const { signUpUser } = useContext(authContext);
+  const { signUpUser } = useContext(UserContext);
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");

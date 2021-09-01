@@ -15,11 +15,12 @@ import {
 } from "./pages";
 import { SignedInNav, SignedOutNav } from "./components";
 import { useContext } from "react";
-import { authContext } from "./context/authContext";
+import { UserContext } from "./context/UserContext";
 import PrivateRoute from "./helpers/PrivateRoute";
 
 function App() {
-  const { isUserLoggedIn } = useContext(authContext);
+  const { isUserLoggedIn } = useContext(UserContext);
+  console.log("IS USER LOGGED", isUserLoggedIn);
   return (
     <div className="App">
       {isUserLoggedIn ? <SignedInNav /> : <SignedOutNav />}
