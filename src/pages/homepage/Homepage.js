@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AllVideoListing } from "../../containers";
 import { videoContext } from "../../context/VideoContext";
@@ -7,17 +7,17 @@ import { PlaylistModal } from "../../components";
 
 function Homepage() {
   const { AllVideos } = useContext(videoContext);
-  console.log("HOME_AllVideos", AllVideos);
+  const [video, setVideo] = useState({});
+
+  console.log("HOME_VIDEO", video);
 
   const truncate = (string, n) => {
     return string?.length > n ? string.substr(0, n - 1) + "..." : string;
   };
 
-  const index = AllVideos?.findIndex(
-    (video) => video.title === "High Speed - October 13"
-  );
-
-  const video = AllVideos[index];
+  useEffect(() => {
+    setVideo(AllVideos[2]);
+  }, [AllVideos]);
 
   const [modalIsOpen, setIsOpen] = useState(false);
 
@@ -37,7 +37,7 @@ function Homepage() {
         <div className="homepage__bannerContent">
           <h1 className="homepage__bannerTitle">{video?.title}</h1>
           <div className="homepage__bannerButtons">
-            <Link to={`/videos/${video?.videoId}`}>
+            <Link to={`/videos/609c6a6bcf8a604d0a91948f`}>
               <button className="homepage__bannerButton">Play</button>
             </Link>
             <button className="homepage__bannerButton" onClick={openModal}>

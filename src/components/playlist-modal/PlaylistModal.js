@@ -3,9 +3,17 @@ import React, { useContext, useState } from "react";
 import { videoContext } from "../../context/VideoContext";
 import Modal from "react-modal";
 import { AiFillDelete } from "react-icons/ai";
+import { UserContext } from "../../context/UserContext";
 
 const PlaylistModal = ({ video, modalIsOpen, setIsOpen }) => {
-  const { playlists, dispatch } = useContext(videoContext);
+  const {
+    currentUser: { playlists },
+    dispatch,
+    addNewPlaylist,
+    addVideoToPlaylist,
+    removeVideoFromPlaylist,
+    deletePlaylist,
+  } = useContext(UserContext);
 
   const [newPlaylistName, setNewPlaylistName] = useState("");
 
@@ -19,7 +27,7 @@ const PlaylistModal = ({ video, modalIsOpen, setIsOpen }) => {
       transform: "translate(-50%, -50%)",
       background: "#2b2b2b",
       color: "white",
-      minHeight: "50%",
+      maxHeight: "50%",
       display: "flex",
       display: "flex",
       flexDirection: "column",
@@ -37,33 +45,21 @@ const PlaylistModal = ({ video, modalIsOpen, setIsOpen }) => {
   }
 
   const checkIsInPlaylist = (playlist) => {
-    let isInPlaylist;
-    if (
-      playlist.playlist.some(
-        (playlistVideo) => playlistVideo.videoId === video.videoId
-      )
-    ) {
-      isInPlaylist = true;
-    } else {
-      isInPlaylist = false;
-    }
-    return isInPlaylist;
+    return playlist?.videos?.some(
+      (playlistVideo) => playlistVideo._id === video._id
+    );
   };
   const handleCheckboxClick = (playlist) => {
+    console.log(playlist);
+    console.log(video);
     let isInPlaylist = checkIsInPlaylist(playlist);
     isInPlaylist
-      ? dispatch({
-          type: "REMOVE_FROM_PLAYLIST",
-          payload: { id: playlist.playlistId, videoId: video.videoId },
-        })
-      : dispatch({
-          type: "ADD_TO_PLAYLIST",
-          payload: { id: playlist.playlistId, video },
-        });
+      ? removeVideoFromPlaylist(playlist._id, video._id)
+      : addVideoToPlaylist(playlist._id, video._id);
   };
 
   const addNewPlaylistHandler = () => {
-    dispatch({ type: "ADD_PLAYLIST", payload: newPlaylistName });
+    addNewPlaylist(newPlaylistName);
     setNewPlaylistName("");
   };
 
@@ -80,7 +76,10 @@ const PlaylistModal = ({ video, modalIsOpen, setIsOpen }) => {
       </button>
       <div className="playlistmodal__playlistWrapper">
         {playlists.map((playlist, i) => (
-          <div className="playlistmodal__checkboxInputContainer" key={i}>
+          <div
+            className="playlistmodal__checkboxInputContainer"
+            key={playlist._id}
+          >
             <input
               type="checkbox"
               onChange={() => handleCheckboxClick(playlist)}
@@ -89,12 +88,7 @@ const PlaylistModal = ({ video, modalIsOpen, setIsOpen }) => {
             />
             <div>{playlist.name}</div>
             <AiFillDelete
-              onClick={() =>
-                dispatch({
-                  type: "REMOVE_PLAYLIST",
-                  payload: { playlistId: playlist.playlistId },
-                })
-              }
+              onClick={() => deletePlaylist(playlist._id)}
               className="playlistmodal__playlistDeleteIcon"
             />
           </div>

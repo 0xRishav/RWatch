@@ -4,18 +4,18 @@ import { UserContext } from "../../context/UserContext";
 import "./SignInSignOutBtn.css";
 
 function SignInSignOutBtn() {
-  const { isUserLoggedIn, setIsUserLoggedIn } = useContext(UserContext);
+  const { accessToken, setIsUserLoggedIn } = useContext(UserContext);
   const signinBtnHandler = () => {
-    if (isUserLoggedIn) {
+    if (accessToken) {
       window.localStorage.removeItem("currentUser");
-      setIsUserLoggedIn(!isUserLoggedIn);
+      setIsUserLoggedIn(!accessToken);
     }
   };
 
   return (
-    <Link to={isUserLoggedIn ? "#" : "/signin"}>
+    <Link to={accessToken ? "#" : "/signin"}>
       <button className="blue-btn--primary" onClick={signinBtnHandler}>
-        {isUserLoggedIn ? "Sign Out" : "Sign In"}
+        {accessToken ? "Sign Out" : "Sign In"}
       </button>
     </Link>
   );

@@ -4,7 +4,7 @@ import "./NormalVideoCard.css";
 import { Link } from "react-router-dom";
 import { AiFillPlayCircle } from "react-icons/ai";
 
-function NormalVideoCard({ videoId, organiser, title, isInGrid }) {
+function NormalVideoCard({ videoId, _id, organiser, title, isInGrid }) {
   const [isCardHover, setIsCardHover] = useState(false);
   const { AllVideos } = useContext(videoContext);
   return (
@@ -13,7 +13,7 @@ function NormalVideoCard({ videoId, organiser, title, isInGrid }) {
       onMouseEnter={() => setIsCardHover(true)}
       onMouseLeave={() => setIsCardHover(false)}
     >
-      <Link to={`/videos/${videoId}`} className="normalVideoCard__link">
+      <Link to={`/videos/${_id}`} className="normalVideoCard__link">
         <img
           src={`https://img.youtube.com/vi/${videoId}/0.jpg`}
           alt="video-cover"
