@@ -128,7 +128,7 @@ function VideoPage() {
 
       {isVideoPlaying && (
         <YouTube
-          videoId={videoId}
+          videoId={currentVideo.videoId}
           opts={opts}
           className="videopage__youtube__video"
         />
