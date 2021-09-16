@@ -1,6 +1,7 @@
 export const AllVideos = [
   // APPLE
   {
+    _id: "609c6a6bcf8a604d0a91948d",
     title: "Spring Loaded - April 20",
     organiser: "Apple",
     description:
@@ -10,6 +11,7 @@ export const AllVideos = [
     videoUrl: "https://www.youtube.com/watch?v=JdBYVNuky1M",
   },
   {
+    _id: "609c6a6bcf8a604d0a91948e",
     title: "WWDC 2020",
     organiser: "Apple",
     description:
@@ -20,6 +22,7 @@ export const AllVideos = [
   },
 
   {
+    _id: "609c6a6bcf8a604d0a91948f",
     title: "High Speed - October 13",
     organiser: "Apple",
     description:
@@ -29,6 +32,7 @@ export const AllVideos = [
     videoUrl: "https://www.youtube.com/watch?v=KR0g-1hnQPA",
   },
   {
+    _id: "609c6a6bcf8a604d0a919490",
     title: "September Event 2019 — Apple",
     organiser: "Apple",
     description:
@@ -38,6 +42,7 @@ export const AllVideos = [
     videoUrl: "https://www.youtube.com/watch?v=-rAeqN-Q7x4",
   },
   {
+    _id: "609c6a6bcf8a604d0a919491",
     title: "September Event 2018 — Apple",
     organiser: "Apple",
     description:
@@ -47,7 +52,7 @@ export const AllVideos = [
     videoUrl: "https://www.youtube.com/watch?v=wFTmQ27S7OQ",
   },
   {
-    title: "Apple — WWDC 2017 Keynote",
+    _id: "609c6a6bcf8a604d0a919492",
     organiser: "Apple",
     description:
       "Apple WWDC 2017. Take a look at our latest announcements. The new iPad Pro. iMac Pro. HomePod. iOS 11. macOS High Sierra. watchOS 4.",
@@ -59,6 +64,7 @@ export const AllVideos = [
   //   GOOGLE
 
   {
+    _id: "609c6a6bcf8a604d0a919493",
     title: "Google Keynote (Google I/O'19)",
     organiser: "Google",
     description:
@@ -69,6 +75,7 @@ export const AllVideos = [
   },
 
   {
+    _id: "609c6a6bcf8a604d0a919494",
     title: "Google Keynote (Google I/O'18)",
     organiser: "Google",
     description:
@@ -79,6 +86,7 @@ export const AllVideos = [
   },
 
   {
+    _id: "609c6a6bcf8a604d0a919495",
     title: "Google I/O 2017 - Keynote",
     organiser: "Google",
     description:
@@ -89,6 +97,7 @@ export const AllVideos = [
   },
 
   {
+    _id: "609c6a6bcf8a604d0a919496",
     title: "Google I/O 2016 - Keynote",
     organiser: "Google",
     description:
@@ -99,6 +108,7 @@ export const AllVideos = [
   },
 
   {
+    _id: "609c6a6bcf8a604d0a919497",
     title: "Google I/O 2015 - Keynote",
     organiser: "Google",
     description:
@@ -109,6 +119,7 @@ export const AllVideos = [
   },
 
   {
+    _id: "609c6a6bcf8a604d0a919498",
     title: "Google I/O 2014 - Keynote",
     organiser: "Google",
     description:
@@ -121,6 +132,7 @@ export const AllVideos = [
   //   SAMSUNG
 
   {
+    _id: "609c6a6bcf8a604d0a919499",
     title: "Galaxy Unpacked January 2021",
     organiser: "Samsung",
     description:
@@ -131,6 +143,7 @@ export const AllVideos = [
   },
 
   {
+    _id: "609c6a6bcf8a604d0a91949a",
     title: "Samsung Galaxy Awesome Unpacked",
     organiser: "Samsung",
     description:
@@ -139,15 +152,17 @@ export const AllVideos = [
     videoId: "17Tc8un6J40",
     videoUrl: "https://www.youtube.com/watch?v=17Tc8un6J40",
   },
+  // {
+  //   _id: "609c6a6bcf8a604d0a91949b",
+  //   title: "Galaxy Note20: 2020",
+  //   organiser: "Samsung",
+  //   description: "Witness power like never before.",
+  //   isLatest: true,
+  //   videoId: "CmS5rlX9cDA",
+  //   videoUrl: "https://www.youtube.com/watch?v=CmS5rlX9cDA",
+  // },
   {
-    title: "Galaxy Note20: 2020",
-    organiser: "Samsung",
-    description: "Witness power like never before.",
-    isLatest: true,
-    videoId: "CmS5rlX9cDA",
-    videoUrl: "https://www.youtube.com/watch?v=CmS5rlX9cDA",
-  },
-  {
+    _id: "609c6a6bcf8a604d0a91949c",
     title: "Galaxy Unpacked - 2019",
     organiser: "Samsung",
     description:
@@ -158,6 +173,7 @@ export const AllVideos = [
   },
 
   {
+    _id: "609c6a6bcf8a604d0a91949d",
     title: "Samsung Galaxy Note 8 Presentation",
     organiser: "Samsung",
     description:
@@ -170,6 +186,7 @@ export const AllVideos = [
   //MICROSOFT
 
   {
+    _id: "609c6a6bcf8a604d0a91949e",
     title: "Microsoft Ignite 2021",
     organiser: "Microsoft",
     description:
@@ -180,6 +197,7 @@ export const AllVideos = [
   },
 
   {
+    _id: "609c6a6bcf8a604d0a91949f",
     title: "Vision Keynote | Microsoft Ignite 2019",
     organiser: "Microsoft",
     description:
@@ -190,6 +208,7 @@ export const AllVideos = [
   },
 
   {
+    _id: "609c6a6bcf8a604d0a9194a0",
     title: "#MicrosoftEvent​ Live",
     organiser: "Microsoft",
     description:
@@ -200,6 +219,7 @@ export const AllVideos = [
   },
 
   {
+    _id: "609c6a6bcf8a604d0a9194a1",
     title: "Microsoft Build 2018 | Vision Keynote",
     organiser: "Microsoft",
     description:
@@ -210,6 +230,7 @@ export const AllVideos = [
   },
 
   {
+    _id: "609c6a6bcf8a604d0a9194a2",
     title: "Microsoft Build 2017",
     organiser: "Microsoft",
     description:
@@ -222,6 +243,7 @@ export const AllVideos = [
   //   CES
 
   {
+    _id: "609c6a6bcf8a604d0a9194a3",
     title: "The Best of CES 2020",
     organiser: "CES",
     description: "See The Best of CES 2020.",
@@ -231,6 +253,7 @@ export const AllVideos = [
   },
 
   {
+    _id: "609c6a6bcf8a604d0a9194a4",
     title: "The Best of CES 2019",
     organiser: "CES",
     description: "The Best of CES 2019: Only the cream of the crop",
@@ -240,6 +263,7 @@ export const AllVideos = [
   },
 
   {
+    _id: "609c6a6bcf8a604d0a9194a5",
     title: "The Best of CES 2018",
     organiser: "CES",
     description: "The Best of CES 2018: Only the cream of the crop",
@@ -249,6 +273,7 @@ export const AllVideos = [
   },
 
   {
+    _id: "609c6a6bcf8a604d0a9194a6",
     title: "The Best of CES 2017",
     organiser: "CES",
     description: "The Best of CES 2017: Only the cream of the crop",
@@ -258,6 +283,7 @@ export const AllVideos = [
   },
 
   {
+    _id: "609c6a6bcf8a604d0a9194a7",
     title: "The Best of CES 2015",
     organiser: "CES",
     description: "The Best of CES 2015: Only the cream of the crop",

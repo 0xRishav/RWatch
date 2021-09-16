@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./VideoPage.css";
 import { BiPlayCircle } from "react-icons/bi";
 import { videoContext } from "../../context/VideoContext";
@@ -10,19 +10,58 @@ import { BsArrowUpRight } from "react-icons/bs";
 import { useParams } from "react-router";
 import YouTube from "react-youtube";
 import { PlaylistModal } from "../../components";
+import { UserContext } from "../../context/UserContext";
 
 function VideoPage() {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
-  const { AllVideos, likedVideos, history } = useContext(videoContext);
+  const [videoId, setVideoId] = useState("");
+  const { AllVideos, fetchSingleVideo, currentVideo } =
+    useContext(videoContext);
+  const {
+    currentUser: { likedVideos, history },
+    addToHistory,
+    likeVideo,
+    dislikeVideo,
+  } = useContext(UserContext);
   const { dispatch } = useContext(videoContext);
   const [isVideoLiked, setIsVideoLiked] = useState(false);
-  const { videoId } = useParams();
-  const video = AllVideos.find((video) => video.videoId === videoId);
-
-  const organisersVideos = AllVideos.filter(
-    (individualVideo) => individualVideo.organiser === video.organiser
-  ).filter((organierVideo) => organierVideo.videoId !== videoId);
+  const [organisersVideos, setOrganisersVideos] = useState([]);
   const [playBtnHover, setPlayBtnHover] = useState(false);
+  const [isInHistory, setIsInHistory] = useState(false);
+  const { dbVideoId } = useParams();
+  const checkIsInLiked = () => {
+    const index = likedVideos.findIndex(
+      (likedVideo) => likedVideo._id === currentVideo?._id
+    );
+    if (index === -1) {
+      return false;
+    } else {
+      return true;
+    }
+  };
+
+  useEffect(() => {
+    fetchSingleVideo(dbVideoId);
+    let orgVideos = AllVideos.filter(
+      (individualVideo) => individualVideo.organiser === currentVideo?.organiser
+    ).filter((organierVideo) => organierVideo.videoId !== videoId);
+    setOrganisersVideos(orgVideos);
+  }, [dbVideoId]);
+  useEffect(() => {
+    let orgVideos = AllVideos.filter(
+      (individualVideo) => individualVideo.organiser === currentVideo?.organiser
+    ).filter((organierVideo) => organierVideo.videoId !== videoId);
+    setOrganisersVideos(orgVideos);
+  }, [currentVideo]);
+
+  useEffect(() => {
+    setIsVideoLiked(checkIsInLiked());
+  }, [dbVideoId, likedVideos, currentVideo]);
+  useEffect(() => {
+    setIsInHistory(checkIsInHistory());
+  }, [dbVideoId, history]);
+
+  console.log("likedVideos", likedVideos);
 
   const opts = {
     playerVars: {
@@ -30,37 +69,30 @@ function VideoPage() {
     },
   };
 
-  const playBtnClickHandler = () => {
-    const isInHistory = history.some(
-      (historyVideo) => historyVideo.videoId !== video.videoId
+  const checkIsInHistory = () => {
+    const index = history.findIndex(
+      (historyVideo) => historyVideo._id === currentVideo?._id
     );
-
-    if (!isInHistory) {
-      dispatch({ type: "ADD_TO_HISTORY", payload: video });
-    }
-    setIsVideoPlaying(true);
-  };
-
-  const checkIsInLiked = () => {
-    let isInLiked;
-    if (
-      likedVideos.some((likedVideo) => likedVideo.videoId === video.videoId)
-    ) {
-      isInLiked = true;
+    if (index === -1) {
+      return false;
     } else {
-      isInLiked = false;
+      return true;
     }
-    return isInLiked;
   };
 
-  console.log({ history });
+  console.log("HISTORY", history);
+
+  const playBtnClickHandler = () => {
+    setIsVideoPlaying(true);
+    if (isInHistory) {
+      return;
+    } else {
+      addToHistory(currentVideo._id);
+    }
+  };
+
   const likeClickHandler = () => {
-    setIsVideoLiked(!isVideoLiked);
-    let isInLiked = checkIsInLiked();
-    console.log(isInLiked);
-    isInLiked
-      ? dispatch({ type: "REMOVE_FROM_LIKED", payload: { videoId: videoId } })
-      : dispatch({ type: "ADD_TO_LIKED", payload: video });
+    isVideoLiked ? dislikeVideo(currentVideo._id) : likeVideo(currentVideo._id);
   };
 
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -78,7 +110,7 @@ function VideoPage() {
           <div
             className="videopage__banner"
             style={{
-              backgroundImage: `url("https://img.youtube.com/vi/${videoId}/maxresdefault.jpg")`,
+              backgroundImage: `url("https://img.youtube.com/vi/${currentVideo.videoId}/maxresdefault.jpg")`,
               opacity: playBtnHover ? "0.5" : "1",
             }}
           >
@@ -96,15 +128,15 @@ function VideoPage() {
 
       {isVideoPlaying && (
         <YouTube
-          videoId={videoId}
+          videoId={currentVideo.videoId}
           opts={opts}
           className="videopage__youtube__video"
         />
       )}
       <div className="videopage__titleBtnWrapper">
         <div className="videopage__titleWrapper">
-          <h2>{video.title}</h2>
-          <p>{video.description}</p>
+          <h2>{currentVideo?.title}</h2>
+          <p>{currentVideo?.description}</p>
         </div>
 
         <div className="videopage__iconWrapper">
@@ -120,7 +152,11 @@ function VideoPage() {
             />
           )}
           <MdPlaylistAdd className="videopage__icons" onClick={openModal} />
-          <a href={video.videoUrl} target="_blank" className="videopage__link">
+          <a
+            href={currentVideo?.videoUrl}
+            target="_blank"
+            className="videopage__link"
+          >
             <BsArrowUpRight className="videopage__icons" />
           </a>
         </div>
@@ -129,13 +165,16 @@ function VideoPage() {
       <PlaylistModal
         modalIsOpen={modalIsOpen}
         setIsOpen={setIsOpen}
-        video={video}
+        video={currentVideo}
         openModal={openModal}
       />
 
       <div className="videopage__hr" />
 
-      <NormalVideoList videos={organisersVideos} title={video.organiser} />
+      <NormalVideoList
+        videos={organisersVideos}
+        title={currentVideo?.organiser}
+      />
     </div>
   );
 }

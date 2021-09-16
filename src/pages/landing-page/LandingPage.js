@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./LandingPage.css";
 import { Link } from "react-router-dom";
 import { AllVideoListing } from "../../containers";
+import { videoContext } from "../../context/VideoContext";
+import { UserContext } from "../../context/UserContext";
 
 function LandingPage() {
   const [isVideoLoaded, setIsVideoLoaded] = React.useState(false);
+  const { AllVideos } = useContext(videoContext);
+  const { loginWithCredentials } = useContext(UserContext);
+  console.log("allVideos", AllVideos);
   const onLoadedDataHandler = () => {
     setIsVideoLoaded(true);
   };
@@ -34,9 +39,26 @@ function LandingPage() {
           <div className="landingpage__ctaTagLine">
             A Destination For The New Millennium.
           </div>
-          <Link to="/signin">
-            <button className="landingpage__ctaBtn">SignIn To Watch</button>
-          </Link>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Link to="/signin">
+              <button className="landingpage__ctaBtn">SignIn To Watch</button>
+            </Link>
+            <button
+              onClick={() =>
+                loginWithCredentials("demoaccount2@gmail.com", "123456")
+              }
+              className="landingpage__ctaBtn"
+            >
+              Use Demo Account
+            </button>
+          </div>
         </div>
       </div>
       <AllVideoListing />

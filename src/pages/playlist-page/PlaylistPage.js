@@ -2,26 +2,31 @@ import { useContext, useEffect, useState } from "react";
 import { videoContext } from "../../context/VideoContext";
 import { NormalVideoList } from "../../containers";
 import "./PlaylistPage.css";
+import { UserContext } from "../../context/UserContext";
 
 const PlaylistPage = () => {
-  const { playlists, likedVideos } = useContext(videoContext);
+  const {
+    currentUser: { playlists, likedVideos },
+  } = useContext(UserContext);
   const [isNothing, setIsNothing] = useState(false);
 
-  useEffect(() => {
-    playlists.map((playlist) =>
-      playlist.playlist.length === 0 ? setIsNothing(true) : setIsNothing(false)
-    );
-    likedVideos.length === 0 ? setIsNothing(true) : setIsNothing(false);
-  }, [playlists]);
+  console.log("playlists", playlists);
+
+  // useEffect(() => {
+  //   playlists.map((playlist) =>
+  //     playlist.videos.length === 0 ? setIsNothing(true) : setIsNothing(false)
+  //   );
+  //   likedVideos.length === 0 ? setIsNothing(true) : setIsNothing(false);
+  // }, [playlists]);
 
   return (
     <div className="playlistpage">
       {playlists.map((playlist, i) => (
         <div className="">
-          {playlist.playlist.length !== 0 && <h1>{playlist.name}</h1>}
-          {playlist.playlist.length !== 0 && (
+          {playlist.videos.length !== 0 && <h1>{playlist.name}</h1>}
+          {playlist.videos.length !== 0 && (
             <NormalVideoList
-              videos={playlist.playlist}
+              videos={playlist.videos}
               dontShowTitle
               inGrid={false}
               key={i}
@@ -41,7 +46,9 @@ const PlaylistPage = () => {
           )}
         </div>
       }
-      {isNothing && <h1>Nothing to show</h1>}
+      {(playlists?.videos?.length === 0 || likedVideos?.length === 0) && (
+        <h1>Nothing to show</h1>
+      )}
     </div>
   );
 };

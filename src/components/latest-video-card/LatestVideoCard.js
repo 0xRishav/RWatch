@@ -3,14 +3,14 @@ import { videoContext } from "../../context/VideoContext";
 import "./LatestVideoCard.css";
 import { Link } from "react-router-dom";
 
-function LatestVideoCard({ title, videoId, description, organiser }) {
+function LatestVideoCard({ title, _id, videoId, description, organiser }) {
   const { AllVideos } = useContext(videoContext);
 
   const truncate = (string, n) => {
     return string?.length > n ? string.substr(0, n - 1) + "..." : string;
   };
   return (
-    <Link className="latestVideoCard__link" to={`/videos/${videoId}`}>
+    <Link className="latestVideoCard__link" to={`/videos/${_id}`}>
       <div className="latestVideoCard">
         <img
           src={`https://img.youtube.com/vi/${videoId}/0.jpg`}

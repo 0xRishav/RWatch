@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import { authContext } from "../../context/authContext";
+import { UserContext } from "../../context/UserContext";
 import "./Profilepage.css";
 
 const Profilepage = () => {
-  const { currentUser } = useContext(authContext);
+  const { currentUser } = useContext(UserContext);
   return (
     <div className="profilepage">
       <h2>Hello, {currentUser.name}</h2>

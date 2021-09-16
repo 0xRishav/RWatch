@@ -2,11 +2,11 @@ import React, { useContext, useState } from "react";
 import { Link, useHistory, useLocation } from "react-router-dom";
 import "./SignInPage.css";
 import { BsArrowUpRight } from "react-icons/bs";
-import { authContext } from "../../context/authContext";
+import { UserContext } from "../../context/UserContext";
 import { Loader } from "../../components";
 
 function SignInPage() {
-  const { loginWithCredentials } = useContext(authContext);
+  const { loginWithCredentials } = useContext(UserContext);
   const { state } = useLocation();
   const [isSignInProgress, setIsSignInProgress] = useState(false);
   const [email, setEmail] = useState("");
@@ -16,7 +16,8 @@ function SignInPage() {
   async function signinHandler() {
     setIsSignInProgress(true);
     const response = await loginWithCredentials(email, password);
-    if (response.success) {
+    console.log(response);
+    if (response.status === 200) {
       history.push(state?.from ? state.from : "/");
     }
     setIsSignInProgress(false);

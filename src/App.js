@@ -13,27 +13,32 @@ import {
   PlaylistPage,
   RouteNotFound,
 } from "./pages";
-import { SignedInNav, SignedOutNav } from "./components";
-import { useContext } from "react";
-import { authContext } from "./context/authContext";
+import { Loader, SignedInNav, SignedOutNav } from "./components";
+import { useContext, useEffect } from "react";
+import { UserContext } from "./context/UserContext";
 import PrivateRoute from "./helpers/PrivateRoute";
+import { videoContext } from "./context/VideoContext";
 
 function App() {
-  const { isUserLoggedIn } = useContext(authContext);
+  const { accessToken, isUserLoading } = useContext(UserContext);
+  const { isVideoLoading } = useContext(videoContext);
+  console.log("IS Loading", isUserLoading, isVideoLoading);
   return (
     <div className="App">
-      {isUserLoggedIn ? <SignedInNav /> : <SignedOutNav />}
+      {(isUserLoading || isVideoLoading) && <Loader />}
+      {/* {isUserLoading && <h1>Loading...</h1>} */}
+      {accessToken ? <SignedInNav /> : <SignedOutNav />}
 
       <div className="App__wrapper">
         <Switch>
           <Route
             exact
             path="/"
-            component={isUserLoggedIn ? Homepage : LandingPage}
+            component={accessToken ? Homepage : LandingPage}
           />
           <Route exact path="/signin" component={SignInPage} />
           <Route exact path="/signup" component={SignUpPage} />
-          <PrivateRoute exact path="/videos/:videoId" component={VideoPage} />
+          <PrivateRoute exact path="/videos/:dbVideoId" component={VideoPage} />
           <Route exact path="/videos" component={AllVideospage} />
           <Route exact path="/search" component={SearchPage} />
           <Route exact path="/profile" component={Profilepage} />

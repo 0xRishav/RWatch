@@ -7,17 +7,20 @@ import { AiOutlineClose } from "react-icons/ai";
 import { BiSearch } from "react-icons/bi";
 import { FaUserAlt } from "react-icons/fa";
 import { videoContext } from "../../context/VideoContext";
-import { authContext } from "../../context/authContext";
+import { UserContext } from "../../context/UserContext";
 
 function SignedInNav() {
-  const { AllVideos } = useContext(videoContext);
-  const { isUserLoggedIn } = useContext(authContext);
+  const vidContext = useContext(videoContext);
+  const { accessToken, signout } = useContext(UserContext);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isSearchClicked, setIsSearchClicked] = useState(false);
+  const [filteredVideos, setFilteredVideos] = useState([]);
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
   const [searchInput, setSearchInput] = useState("");
   const { width } = useWindowDimensions();
   const navbarRef = useRef(null);
+
+  console.log("vidContext", vidContext);
 
   const serchClickHandler = () => {
     setIsSearchClicked(true);
@@ -30,6 +33,20 @@ function SignedInNav() {
       setIsScrolled(false);
     }
   };
+
+  // useEffect(() => {
+  //   const FilteredVideos = vidContext?.AllVideos?.filter((video) => {
+  //     console.log(video.title);
+  //     console.log(video.organiser);
+  //     if (
+  //       video.title.includes(searchInput) ||
+  //       video.organiser.includes(searchInput)
+  //     ) {
+  //       return video;
+  //     }
+  //   });
+  //   setFilteredVideos(FilteredVideos);
+  // }, [searchInput]);
 
   useEffect(() => {
     window.addEventListener("scroll", transitionNavbar);
@@ -52,15 +69,6 @@ function SignedInNav() {
   const handleSearchInputChange = (e) => {
     setSearchInput(e.target.value);
   };
-
-  const filteredVideos = AllVideos.filter((video) => {
-    if (
-      video.title.toLowerCase().includes(searchInput.toLowerCase()) ||
-      video.organiser.toLowerCase().includes(searchInput.toLowerCase())
-    ) {
-      return video;
-    }
-  });
 
   const handleSearchKeyPress = (e) => {
     if (e.key === "Enter") {
@@ -218,7 +226,7 @@ function SignedInNav() {
               <NavLink
                 to={{
                   pathname: "/search",
-                  state: { filteredVideos, searchInput },
+                  state: { searchInput },
                 }}
                 className="Navbar__searchInputIcon"
                 onClick={() => setIsSideMenuOpen(false)}
@@ -228,16 +236,9 @@ function SignedInNav() {
             </div>
           </>
         ) : null}
-        <NavLink
-          to={isUserLoggedIn ? "/profile" : "signin"}
-          className="navbar__Link"
-        >
-          {true ? (
-            <FaUserAlt />
-          ) : (
-            <button className="navbar__signInBtn">Sign in</button>
-          )}
-        </NavLink>
+        <div style={{ cursor: "pointer" }} onClick={() => signout()}>
+          Sign Out
+        </div>
       </div>
     </div>
   );

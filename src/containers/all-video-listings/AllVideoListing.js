@@ -5,17 +5,23 @@ import "./AllVideoListing.css";
 
 function AllVideoListing() {
   const { AllVideos } = useContext(videoContext);
-  const appleEvents = AllVideos.filter((video) => video.organiser === "Apple");
-  const googleEvents = AllVideos.filter(
-    (video) => video.organiser === "Google"
+  console.log("Video listing", AllVideos);
+  // const response = await getAllVideos();
+  // console.log("ALLRES", response);
+  console.log(AllVideos);
+  const appleEvents = AllVideos?.filter(
+    (video) => video?.organiser === "Apple"
   );
-  const samsungEvents = AllVideos.filter(
-    (video) => video.organiser === "Samsung"
+  const googleEvents = AllVideos?.filter(
+    (video) => video?.organiser === "Google"
   );
-  const microsoftEvents = AllVideos.filter(
-    (video) => video.organiser === "Microsoft"
+  const samsungEvents = AllVideos?.filter(
+    (video) => video?.organiser === "Samsung"
   );
-  const cesEvents = AllVideos.filter((video) => video.organiser === "CES");
+  const microsoftEvents = AllVideos?.filter(
+    (video) => video?.organiser === "Microsoft"
+  );
+  const cesEvents = AllVideos?.filter((video) => video?.organiser === "CES");
 
   return (
     <div className="allVideosListing">
