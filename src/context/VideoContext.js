@@ -3,7 +3,7 @@ import { AllVideos } from "../data/AllVideos";
 import axios from "axios";
 
 export const videoContext = createContext();
-const baseUrl = "https://rwatch-api.herokuapp.com";
+const baseUrl = "https://rwatch-api.onrender.com/";
 
 export const VideoContextProvider = ({ children }) => {
   const initialState = {
