@@ -3,7 +3,7 @@ import useLocalStorage from "../custom-hooks/useLocalStorage";
 import axios from "axios";
 
 export const UserContext = createContext();
-const baseUrl = "https://rwatch-api.herokuapp.com";
+const baseUrl = "https://rwatch-api.onrender.com/";
 
 export const UserContextProvider = ({ children }) => {
   const initialState = {
